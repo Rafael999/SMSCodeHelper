@@ -2,17 +2,35 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:persistent="true">
     <PreferenceCategory android:title="@string/preference_category_general">
+        <SwitchPreference android:key="open"
+            android:title="@string/preference_open_title"
+            android:defaultValue="true"/>
         <SwitchPreference android:key="hidden_launcher_icon"
+            android:dependency="open"
             android:title="@string/preference_hide_launcher_icon_title"
             android:defaultValue="false"/>
         <ListPreference android:key="parse_type"
+            android:dependency="open"
             android:title="@string/preference_parse_type"
             android:defaultValue="1"
             android:entryValues="@array/parse_type_values"
             android:entries="@array/parse_type_entries"/>
-        <SwitchPreference android:key="notification"
-            android:title="@string/preference_notification_title"
+        <SwitchPreference android:key="copy"
+            android:dependency="open"
+            android:title="@string/preference_copy_title"
             android:defaultValue="false"/>
+        <SwitchPreference android:key="clipboard_check"
+            android:dependency="copy"
+            android:title="@string/preference_clipboard_check_title"
+            android:defaultValue="false"/>
+        <SwitchPreference android:key="notification"
+            android:dependency="open"
+            android:title="@string/preference_notification_title"
+            android:defaultValue="true"/>
+        <!--SwitchPreference android:key="intercept"
+            android:dependency="open"
+            android:title="@string/preference_intercept_title"
+            android:defaultValue="false"/-->
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preference_category_about">
         <Preference

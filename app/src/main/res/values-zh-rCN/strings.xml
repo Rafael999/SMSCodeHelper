@@ -3,7 +3,9 @@
 
     <string name="title">SMS Tools</string>
 
-    <string name="toast_format" formatted="false">%s 已被复制到剪贴板</string>
+    <string name="toast_clipboard_not_empty">剪贴板不为空</string>
+
+    <string name="toast_copy_success_format">%s 已被复制到剪贴板</string>
 
     <string name="tip_m">在 Android 6.0 以上需要由用户授予权限，点击获取后，如果没有权限将弹出授权窗口。\n授权后应用将会从启动器隐藏。</string>
 
@@ -13,9 +15,17 @@
 
     <string name="preference_parse_type">解析器</string>
 
+    <string name="preference_copy_title">自动复制到剪贴板</string>
+
+    <string name="preference_clipboard_check_title">检查剪贴板</string>
+
     <string name="preference_notification_title">通知</string>
 
+    <string name="preference_intercept_title">拦截</string>
+
     <string name="dialog_licenses_title">开源许可</string>
+
+    <string name="preference_open_title">运行服务</string>
 
     <string name="preference_hide_launcher_icon_title">隐藏启动器</string>
 

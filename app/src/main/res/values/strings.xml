@@ -3,7 +3,9 @@
 
     <string name="title">SMS Tools</string>
 
-    <string name="toast_format" formatted="false">%s has been copied to clipboard.</string>
+    <string name="toast_clipboard_not_empty">Clipboard is`t empty.</string>
+
+    <string name="toast_copy_success_format">%s has been copied to clipboard.</string>
 
     <string name="tip_m">After Android 6.0, permission should be authorized by user.\nApp will be hide from launcher if authorized.</string>
 
@@ -13,10 +15,17 @@
 
     <string name="preference_parse_type">Parser</string>
 
+    <string name="preference_copy_title">Auto copy</string>
+
+    <string name="preference_clipboard_check_title">Backup clipboard data</string>
+
     <string name="preference_notification_title">Notification</string>
+
+    <string name="preference_intercept_title">Intercept</string>
 
     <string name="dialog_licenses_title">Open Source Licenses</string>
 
+    <string name="preference_open_title">Run service</string>
     <string name="preference_hide_launcher_icon_title">Hide launcher Icon</string>
 
     <string name="preference_category_general">General</string>

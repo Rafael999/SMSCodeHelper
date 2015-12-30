@@ -62,9 +62,7 @@ android {
                     + "-c" 
                     + defaultConfig.versionCode 
                     + "-v" 
-                    + defaultConfig.versionName 
-                    + "-t" 
-                    + buildTime() 
+                    + defaultConfig.versionName
                     + ".apk")
 
                 output.outputFile = new File(outputFile.parent, fileName)

@@ -1,11 +1,9 @@
 SMSCodeHelper
 ===============
 
-![](./ic_launcher.png)
+![](./app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 Copy verification code from SMS automatically.
-
-[![Download from  Google Play](http://steverichey.github.io/google-play-badge-svg/img/en_get.svg)](https://play.google.com/store/apps/details?id=rikka.smscodehelper)
 
 ## Screener
 
@@ -34,6 +32,15 @@ releaseSigning : [
 ~~GPLv3+~~
 
 ## Change Log
+
+### v0.0.3(3)
+[Release-v0.0.3.apk](./apk/me.gitai.smscodehelper-release-c3-v0.0.3.apk)
+
+* Add some more custom config items
+	- Run & Stop
+	- Auth Copy
+		* Clipboard isEmpty check
+	- Show Notification
 
 ### v0.0.2(2)
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="parse_type_values">
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-    <string-array name="parse_type_entries">
-        <item>V1</item>
-        <item>魔趣OS</item>
-    </string-array>
+<string-array name="parse_type_values">
+    <item>1</item>
+    <item>2</item>
+    <item>0</item>
+</string-array>
+<string-array name="parse_type_entries">
+    <item>魔趣OS</item>
+    <item>V1</item>
+    <item>DIY</item>
+</string-array>
 </resources>

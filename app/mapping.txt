@@ -49,6 +49,9 @@ android.support.v4.app.NotificationCompat$BigPictureStyle -> a.a.a.a.k:
 android.support.v4.app.NotificationCompat$BigTextStyle -> a.a.a.a.l:
     java.lang.CharSequence mBigText -> a
     void <init>() -> <init>
+    android.support.v4.app.NotificationCompat$BigTextStyle setBigContentTitle(java.lang.CharSequence) -> a
+    android.support.v4.app.NotificationCompat$BigTextStyle setSummaryText(java.lang.CharSequence) -> b
+    android.support.v4.app.NotificationCompat$BigTextStyle bigText(java.lang.CharSequence) -> c
 android.support.v4.app.NotificationCompat$Builder -> a.a.a.a.m:
     android.content.Context mContext -> a
     java.lang.CharSequence mContentTitle -> b
@@ -83,13 +86,18 @@ android.support.v4.app.NotificationCompat$Builder -> a.a.a.a.m:
     android.support.v4.app.NotificationCompat$Builder setSmallIcon(int) -> a
     android.support.v4.app.NotificationCompat$Builder setContentTitle(java.lang.CharSequence) -> a
     android.support.v4.app.NotificationCompat$Builder setContentText(java.lang.CharSequence) -> b
+    android.support.v4.app.NotificationCompat$Builder setContentInfo(java.lang.CharSequence) -> c
+    android.support.v4.app.NotificationCompat$Builder setContentIntent(android.app.PendingIntent) -> a
+    android.support.v4.app.NotificationCompat$Builder setLargeIcon(android.graphics.Bitmap) -> a
     android.support.v4.app.NotificationCompat$Builder setAutoCancel(boolean) -> a
     android.support.v4.app.NotificationCompat$Builder setCategory(java.lang.String) -> a
+    android.support.v4.app.NotificationCompat$Builder setDefaults(int) -> b
     void setFlag(int,boolean) -> a
-    android.support.v4.app.NotificationCompat$Builder setPriority(int) -> b
+    android.support.v4.app.NotificationCompat$Builder setPriority(int) -> c
+    android.support.v4.app.NotificationCompat$Builder setStyle(android.support.v4.app.NotificationCompat$Style) -> a
     android.app.Notification build() -> a
     android.support.v4.app.NotificationCompat$BuilderExtender getExtender() -> b
-    java.lang.CharSequence limitCharSequenceLength(java.lang.CharSequence) -> c
+    java.lang.CharSequence limitCharSequenceLength(java.lang.CharSequence) -> d
 android.support.v4.app.NotificationCompat$BuilderExtender -> a.a.a.a.n:
     void <init>() -> <init>
     android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationBuilderWithBuilderAccessor) -> a
@@ -123,10 +131,12 @@ android.support.v4.app.NotificationCompat$NotificationCompatImplKitKat -> a.a.a.
     void <init>() -> <init>
     android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
 android.support.v4.app.NotificationCompat$Style -> a.a.a.a.y:
-    java.lang.CharSequence mBigContentTitle -> d
-    java.lang.CharSequence mSummaryText -> e
-    boolean mSummaryTextSet -> f
+    android.support.v4.app.NotificationCompat$Builder mBuilder -> d
+    java.lang.CharSequence mBigContentTitle -> e
+    java.lang.CharSequence mSummaryText -> f
+    boolean mSummaryTextSet -> g
     void <init>() -> <init>
+    void setBuilder(android.support.v4.app.NotificationCompat$Builder) -> a
 android.support.v4.app.NotificationCompatApi20 -> a.a.a.a.z:
     void addAction(android.app.Notification$Builder,android.support.v4.app.NotificationCompatBase$Action) -> a
 android.support.v4.app.NotificationCompatApi20$Builder -> a.a.a.a.aa:
@@ -299,6 +309,7 @@ me.gitai.library.utils.ToastUtil -> me.gitai.library.a.b:
     void <init>() -> <init>
     void initialize(android.app.Application) -> a
     android.app.Application getContext() -> a
+    void show(int) -> a
     void showId(int,java.lang.Object[]) -> a
     void show(java.lang.String) -> a
 me.gitai.library.widget.LicensePreference -> me.gitai.library.widget.LicensePreference:
@@ -407,12 +418,23 @@ rikka.smscodehelper.SMSApp -> rikka.smscodehelper.SMSApp:
     void <init>() -> <init>
     void onCreate() -> onCreate
 rikka.smscodehelper.bean.SMSInfo -> rikka.smscodehelper.a.a:
-    java.lang.String sender -> a
-    java.lang.String code -> b
+    java.lang.String _id -> a
+    java.lang.String thread_id -> b
+    java.lang.String smsAddress -> c
+    java.lang.String smsBody -> d
+    java.lang.String read -> e
+    java.lang.String action -> f
+    java.lang.String sender -> g
+    java.lang.String code -> h
+    void <init>() -> <init>
     void <init>(java.lang.String,java.lang.String) -> <init>
+rikka.smscodehelper.receiver.CopyReceiver -> rikka.smscodehelper.receiver.CopyReceiver:
+    void <init>() -> <init>
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
 rikka.smscodehelper.receiver.SMSBroadcastReceiver -> rikka.smscodehelper.receiver.SMSBroadcastReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void notification(android.content.Context,rikka.smscodehelper.bean.SMSInfo) -> a
 rikka.smscodehelper.utils.Regex -> rikka.smscodehelper.b.a:
     rikka.smscodehelper.bean.SMSInfo parse(java.lang.String) -> a
 rikka.smscodehelper.utils.SMSCode -> rikka.smscodehelper.b.b:
