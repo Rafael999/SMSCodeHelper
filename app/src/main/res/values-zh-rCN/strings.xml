@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">验证码复制器</string>
+    <string name="app_name">短信助手</string>
 
-    <string name="title">SMSCode Helper</string>
+    <string name="title">SMS Tools</string>
 
     <string name="toast_format" formatted="false">%s 已被复制到剪贴板</string>
 

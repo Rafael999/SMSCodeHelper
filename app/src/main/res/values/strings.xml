@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">SMSCodeHelper</string>
+    <string name="app_name">SMS Tools</string>
 
-    <string name="title">SMSCode Helper</string>
+    <string name="title">SMS Tools</string>
 
     <string name="toast_format" formatted="false">%s has been copied to clipboard.</string>
 
@@ -11,7 +11,7 @@
     <string name="exit">Exit</string>
     <string name="permission_denied">Denied..</string>
 
-    <string name="preference_parse_type">Parse Type</string>
+    <string name="preference_parse_type">Parser</string>
 
     <string name="preference_notification_title">Notification</string>
 
