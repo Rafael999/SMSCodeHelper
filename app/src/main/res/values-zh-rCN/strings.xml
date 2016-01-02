@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">短信助手</string>
+    <string name="app_name">验证码工具</string>
 
-    <string name="title">SMS Tools</string>
+    <string name="title">Captchas Tools</string>
 
     <string name="toast_clipboard_not_empty">剪贴板不为空</string>
+
+    <string name="toast_providers_is_empty">服务商为空</string>
 
     <string name="toast_copy_success_format">%s 已被复制到剪贴板</string>
 
@@ -13,25 +15,60 @@
     <string name="exit">退出</string>
     <string name="permission_denied">被拒绝了..</string>
 
-    <string name="preference_parse_type">解析器</string>
+    <string name="preference_category_general">全局</string>
 
-    <string name="preference_copy_title">自动复制到剪贴板</string>
-
-    <string name="preference_clipboard_check_title">检查剪贴板</string>
-
-    <string name="preference_notification_title">通知</string>
-
-    <string name="preference_intercept_title">拦截</string>
-
-    <string name="dialog_licenses_title">开源许可</string>
-
-    <string name="preference_open_title">运行服务</string>
+    <string name="preference_run_title">开启服务</string>
+    <string name="preference_run_summary">运行服务用于解析验证码,并不会常驻内存</string>
 
     <string name="preference_hide_launcher_icon_title">隐藏启动器</string>
+    <string name="preference_hide_launcher_icon_summary">从桌面隐藏应用入口(图标),隐藏后可能无法再次编辑配置\n拨号盘暗码: *#*#767#*#* (SMS)</string>
 
-    <string name="preference_category_general">全局</string>
+    <string name="preference_guess_title">反推</string>
+    <string name="preference_guess_summary">反推服务商</string>
+
+    <string name="preference_send_sms_by_uri_title">发送测试SMS</string>
+    <string name="preference_send_sms_by_uri_summary">免费发送测试短信</string>
+
+    <string name="preference_category_parse">解析</string>
+
+    <string name="preference_parse_type_title">解析器</string>
+    <string name="preference_parse_type_summary">选择解析器类型</string>
+
+    <string name="preference_parse_keywords_title">关键词</string>
+    <string name="preference_parse_keywords_summary">触发自动解析的关键词</string>
+
+    <string name="preference_parse_keywords">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
+    <string name="preference_parse_keywords_hint">可能包含的关键词，使用`空格`分隔</string>
+
+    <string name="preference_parse_provider_regexs_title">服务商</string>
+    <string name="preference_parse_provider_regexs_summary">仅在自定义模式下支持，优先于内建解析器</string>
+
+    <string name="preference_parse_provider_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
+    <string name="preference_parse_provider_regexs_tip">匹配服务商正则的表达式,通过换行符分割</string>
+
+    <string name="preference_parse_captchas_regexs_title">验证码</string>
+    <string name="preference_parse_captchas_regexs_summary">仅在自定义模式下支持，优先于内建解析器</string>
+
+    <string name="preference_parse_captchas_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
+    <string name="preference_parse_captchas_regexs_tip">匹配验证码正则的表达式,通过换行符</string>
+
+    <string name="preference_category_task">任务</string>
+
+    <string name="preference_copy_title">开启自动复制</string>
+    <string name="preference_copy_summary">自动复制到剪贴板</string>
+
+    <string name="preference_clipboard_check_title">开启检查</string>
+    <string name="preference_clipboard_check_summary">复制前检查剪贴板是否为空</string>
+
+    <string name="preference_notification_title">开启通知</string>
+    <string name="preference_notification_summary">在通知栏显示验证码/服务商等信息</string>
+
+    <string name="preference_intercept_title">开启拦截</string>
+    <string name="preference_intercept_summary">截获验证码后不进行传递,阻止短信应用收集记录(4.4以下)</string>
+
     <string name="preference_category_about">关于</string>
 
+    <string name="dialog_licenses_title">开源许可</string>
     <string name="preference_application_open_source_license_title">开源许可</string>
     <string name="preference_application_version_title">应用版本</string>
     <string name="preference_application_rate_app_title">评价应用</string>

@@ -1,4 +1,4 @@
-package rikka.smscodehelper.receiver;
+package me.gitai.smscodehelper.receiver;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -15,12 +15,15 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.telephony.SmsMessage;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import me.gitai.library.utils.SharedPreferencesUtil;
+import me.gitai.library.utils.StringUtils;
 import me.gitai.library.utils.ToastUtil;
-import rikka.smscodehelper.R;
-import rikka.smscodehelper.bean.SMSInfo;
-import rikka.smscodehelper.utils.SMSCode;
-import rikka.smscodehelper.utils.StringUtils;
+import me.gitai.smscodehelper.R;
+import me.gitai.smscodehelper.bean.SMSInfo;
+import me.gitai.smscodehelper.utils.SMSCode;
 
 /**
  * Created by Rikka on 2015/12/7.
@@ -31,7 +34,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
         SharedPreferences sharedPreferences = SharedPreferencesUtil.getInstence(null);
 
-        if (!sharedPreferences.getBoolean("open", false)){
+        if (!sharedPreferences.getBoolean("run", false)){
             return;
         }
 
@@ -84,6 +87,15 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
             if (sharedPreferences.getBoolean("intercept", false)){
                 //4.4<
                 this.abortBroadcast();
+            }
+
+            if (!StringUtils.isEmpty(smsinfo.sender) && !StringUtils.isEmpty(smsinfo.smsAddress)){
+                String provider = String.format("%s(%s)", smsinfo.sender, smsinfo.smsAddress);
+                Set<String> providers = sharedPreferences.getStringSet("guess", new HashSet<String>());
+                if (!providers.contains(provider)){
+                    providers.add(provider);
+                    sharedPreferences.edit().putStringSet("guess", providers).commit();
+                }
             }
         }
     }

@@ -1,10 +1,11 @@
-package me.gitai.library.widget;
+package me.gitai.smscodehelper.widget;
 
 import android.content.Context;
 import android.preference.Preference;
 import android.util.AttributeSet;
 
-import rikka.smscodehelper.R;
+import me.gitai.library.widget.MaterialDialog;
+import me.gitai.smscodehelper.R;
 
 /**
  * Created by gitai on 15-11-5.

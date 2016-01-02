@@ -299,12 +299,18 @@ com.readystatesoftware.systembartint.SystemBarTintManager$SystemBarConfig -> b.b
     int getNavigationBarHeight() -> d
     int getNavigationBarWidth() -> e
     void <init>(android.app.Activity,boolean,boolean,com.readystatesoftware.systembartint.SystemBarTintManager$1) -> <init>
-me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.library.a.a:
+me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.a:
     android.content.Context ctx -> a
     void initialize(android.content.Context) -> a
     android.content.SharedPreferences getInstence(java.lang.String) -> a
     android.content.SharedPreferences$Editor getEditor(java.lang.String) -> b
-me.gitai.library.utils.ToastUtil -> me.gitai.library.a.b:
+me.gitai.library.utils.StringUtils -> me.gitai.a.a.b:
+    char[] HEX_DIGITS -> a
+    boolean isEmpty(java.lang.CharSequence) -> a
+    boolean isEmpty(java.util.Set) -> a
+    java.lang.String join(java.util.Collection,java.lang.String) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.ToastUtil -> me.gitai.a.a.c:
     android.app.Application sContext -> a
     void <init>() -> <init>
     void initialize(android.app.Application) -> a
@@ -312,14 +318,7 @@ me.gitai.library.utils.ToastUtil -> me.gitai.library.a.b:
     void show(int) -> a
     void showId(int,java.lang.Object[]) -> a
     void show(java.lang.String) -> a
-me.gitai.library.widget.LicensePreference -> me.gitai.library.widget.LicensePreference:
-    me.gitai.library.widget.MaterialDialog licenseDialog -> a
-    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    void <init>(android.content.Context) -> <init>
-    void init(android.content.Context) -> a
-    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
-me.gitai.library.widget.MaterialDialog -> me.gitai.library.widget.a:
+me.gitai.library.widget.MaterialDialog -> me.gitai.a.b.a:
     boolean mCancel -> a
     android.content.Context mContext -> b
     android.app.AlertDialog mAlertDialog -> c
@@ -339,6 +338,8 @@ me.gitai.library.widget.MaterialDialog -> me.gitai.library.widget.a:
     android.content.DialogInterface$OnDismissListener mOnDismissListener -> q
     void <init>(android.content.Context) -> <init>
     void show() -> a
+    me.gitai.library.widget.MaterialDialog setContentView(int,me.gitai.library.widget.MaterialDialog$OnViewInflateListener) -> a
+    me.gitai.library.widget.MaterialDialog setContentView(android.view.View) -> a
     void dismiss() -> b
     int dip2px(float) -> a
     boolean isLollipop() -> c
@@ -364,17 +365,17 @@ me.gitai.library.widget.MaterialDialog -> me.gitai.library.widget.a:
     android.view.View access$1400(me.gitai.library.widget.MaterialDialog) -> m
     boolean access$1500(me.gitai.library.widget.MaterialDialog) -> n
     android.content.DialogInterface$OnDismissListener access$1600(me.gitai.library.widget.MaterialDialog) -> o
-me.gitai.library.widget.MaterialDialog$1 -> me.gitai.library.widget.b:
+me.gitai.library.widget.MaterialDialog$1 -> me.gitai.a.b.b:
     me.gitai.library.widget.MaterialDialog$OnClickListener val$listener -> a
     me.gitai.library.widget.MaterialDialog this$0 -> b
     void <init>(me.gitai.library.widget.MaterialDialog,me.gitai.library.widget.MaterialDialog$OnClickListener) -> <init>
     void onClick(android.view.View) -> onClick
-me.gitai.library.widget.MaterialDialog$3 -> me.gitai.library.widget.c:
+me.gitai.library.widget.MaterialDialog$3 -> me.gitai.a.b.c:
     me.gitai.library.widget.MaterialDialog$OnClickListener val$listener -> a
     me.gitai.library.widget.MaterialDialog this$0 -> b
     void <init>(me.gitai.library.widget.MaterialDialog,me.gitai.library.widget.MaterialDialog$OnClickListener) -> <init>
     void onClick(android.view.View) -> onClick
-me.gitai.library.widget.MaterialDialog$Builder -> me.gitai.library.widget.d:
+me.gitai.library.widget.MaterialDialog$Builder -> me.gitai.a.b.d:
     android.widget.TextView mTitleView -> b
     android.widget.TextView mMessageView -> c
     android.view.Window mAlertDialogWindow -> d
@@ -387,14 +388,11 @@ me.gitai.library.widget.MaterialDialog$Builder -> me.gitai.library.widget.d:
     void setMessage(java.lang.CharSequence) -> b
     void setContentView(android.view.View) -> a
     void <init>(me.gitai.library.widget.MaterialDialog,me.gitai.library.widget.MaterialDialog$1) -> <init>
-me.gitai.library.widget.MaterialDialog$OnClickListener -> me.gitai.library.widget.e:
+me.gitai.library.widget.MaterialDialog$OnClickListener -> me.gitai.a.b.e:
     boolean onClick(android.view.View,android.view.View) -> a
-me.gitai.library.widget.VersionPreference -> me.gitai.library.widget.VersionPreference:
-    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    void <init>(android.content.Context) -> <init>
-    void init() -> a
-rikka.smscodehelper.MainPreferences -> rikka.smscodehelper.MainPreferences:
+me.gitai.library.widget.MaterialDialog$OnViewInflateListener -> me.gitai.a.b.f:
+    boolean onInflate(android.view.View) -> a
+me.gitai.smscodehelper.MainPreferences -> me.gitai.smscodehelper.MainPreferences:
     android.preference.SwitchPreference preference_hide_launcher_icon -> a
     boolean hidden_launcher_icon -> b
     void <init>() -> <init>
@@ -404,20 +402,25 @@ rikka.smscodehelper.MainPreferences -> rikka.smscodehelper.MainPreferences:
     void setFitsSystemWindows(boolean) -> a
     void setTranslucentStatus(boolean) -> b
     void getPermission(java.lang.String) -> a
-    void hideLauncher(boolean) -> c
-    void access$000(rikka.smscodehelper.MainPreferences,java.lang.String) -> a
-rikka.smscodehelper.MainPreferences$1 -> rikka.smscodehelper.a:
-    rikka.smscodehelper.MainPreferences this$0 -> a
-    void <init>(rikka.smscodehelper.MainPreferences) -> <init>
+    void access$000(me.gitai.smscodehelper.MainPreferences,java.lang.String) -> a
+me.gitai.smscodehelper.MainPreferences$1 -> me.gitai.smscodehelper.a:
+    me.gitai.smscodehelper.MainPreferences this$0 -> a
+    void <init>(me.gitai.smscodehelper.MainPreferences) -> <init>
     boolean onClick(android.view.View,android.view.View) -> a
-rikka.smscodehelper.MainPreferences$2 -> rikka.smscodehelper.b:
-    rikka.smscodehelper.MainPreferences this$0 -> a
-    void <init>(rikka.smscodehelper.MainPreferences) -> <init>
+me.gitai.smscodehelper.MainPreferences$2 -> me.gitai.smscodehelper.b:
+    me.gitai.smscodehelper.MainPreferences this$0 -> a
+    void <init>(me.gitai.smscodehelper.MainPreferences) -> <init>
     boolean onClick(android.view.View,android.view.View) -> a
-rikka.smscodehelper.SMSApp -> rikka.smscodehelper.SMSApp:
+me.gitai.smscodehelper.R -> me.gitai.smscodehelper.c:
+me.gitai.smscodehelper.R$styleable -> me.gitai.smscodehelper.d:
+    int[] preference -> preference
+    int preference_hint -> preference_hint
+    int preference_text -> preference_text
+    void <clinit>() -> <clinit>
+me.gitai.smscodehelper.SMSApp -> me.gitai.smscodehelper.SMSApp:
     void <init>() -> <init>
     void onCreate() -> onCreate
-rikka.smscodehelper.bean.SMSInfo -> rikka.smscodehelper.a.a:
+me.gitai.smscodehelper.bean.SMSInfo -> me.gitai.smscodehelper.a.a:
     java.lang.String _id -> a
     java.lang.String thread_id -> b
     java.lang.String smsAddress -> c
@@ -428,30 +431,86 @@ rikka.smscodehelper.bean.SMSInfo -> rikka.smscodehelper.a.a:
     java.lang.String code -> h
     void <init>() -> <init>
     void <init>(java.lang.String,java.lang.String) -> <init>
-rikka.smscodehelper.receiver.CopyReceiver -> rikka.smscodehelper.receiver.CopyReceiver:
+me.gitai.smscodehelper.receiver.CopyReceiver -> me.gitai.smscodehelper.receiver.CopyReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-rikka.smscodehelper.receiver.SMSBroadcastReceiver -> rikka.smscodehelper.receiver.SMSBroadcastReceiver:
+me.gitai.smscodehelper.receiver.SMSBroadcastReceiver -> me.gitai.smscodehelper.receiver.SMSBroadcastReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    void notification(android.content.Context,rikka.smscodehelper.bean.SMSInfo) -> a
-rikka.smscodehelper.utils.Regex -> rikka.smscodehelper.b.a:
-    rikka.smscodehelper.bean.SMSInfo parse(java.lang.String) -> a
-rikka.smscodehelper.utils.SMSCode -> rikka.smscodehelper.b.b:
-    rikka.smscodehelper.bean.SMSInfo parse(java.lang.String,java.lang.String,int) -> a
-    rikka.smscodehelper.bean.SMSInfo findByMokee(java.lang.String,java.lang.String) -> a
-rikka.smscodehelper.utils.StringUtils -> rikka.smscodehelper.b.c:
-    char[] HEX_DIGITS -> a
-    boolean isEmpty(java.lang.CharSequence) -> a
+    void notification(android.content.Context,me.gitai.smscodehelper.bean.SMSInfo) -> a
+me.gitai.smscodehelper.receiver.SecretCodeReceiver -> me.gitai.smscodehelper.receiver.SecretCodeReceiver:
+    java.lang.String SECRET_CODE_ACTION -> a
+    void <init>() -> <init>
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+me.gitai.smscodehelper.utils.CommonUtil -> me.gitai.smscodehelper.b.a:
+    void hideLauncher(android.app.Activity,boolean) -> a
+    void hideLauncher(android.content.Context,android.content.ComponentName,boolean) -> a
+me.gitai.smscodehelper.utils.Regex -> me.gitai.smscodehelper.b.b:
+    java.lang.String def_keywords -> a
+    java.lang.String def_provider_regexs -> b
+    java.lang.String def_captchas_regexs -> c
+    java.lang.String[] keywords -> d
+    java.lang.String[] provider_regexs -> e
+    java.lang.String[] captchas_regexs -> f
+    me.gitai.smscodehelper.bean.SMSInfo smsinfo -> g
+    android.content.SharedPreferences shared -> h
+    void <init>(java.lang.String) -> <init>
+    me.gitai.smscodehelper.bean.SMSInfo getSMSInfo() -> a
+    boolean isCaptchasMessage(java.lang.String) -> a
+    java.lang.String getCaptchaProvider(java.lang.String) -> b
+    java.lang.String tryToGetCnCaptchas(java.lang.String) -> c
     void <clinit>() -> <clinit>
-rikka.smscodehelper.utils.V1 -> rikka.smscodehelper.b.d:
-    rikka.smscodehelper.bean.SMSInfo parse(java.lang.String) -> a
+me.gitai.smscodehelper.utils.SMSCode -> me.gitai.smscodehelper.b.c:
+    me.gitai.smscodehelper.bean.SMSInfo parse(java.lang.String,java.lang.String,int) -> a
+    me.gitai.smscodehelper.bean.SMSInfo findByMokee(java.lang.String,java.lang.String) -> a
+me.gitai.smscodehelper.utils.V1 -> me.gitai.smscodehelper.b.d:
+    me.gitai.smscodehelper.bean.SMSInfo parse(java.lang.String) -> a
     java.lang.String cutSenderFromString(java.util.ArrayList,java.lang.String,java.lang.String,java.lang.String) -> a
     int findKeyWord(java.lang.String) -> b
     java.util.ArrayList findCodeSentence(java.lang.String) -> c
     boolean isCodeChar(char) -> a
     java.lang.String findCode(java.lang.String) -> d
-rikka.smscodehelper.utils.V1$1 -> rikka.smscodehelper.b.e:
+me.gitai.smscodehelper.utils.V1$1 -> me.gitai.smscodehelper.b.e:
     void <init>() -> <init>
     int compare(java.lang.String,java.lang.String) -> a
     int compare(java.lang.Object,java.lang.Object) -> compare
+me.gitai.smscodehelper.widget.EditPreference -> me.gitai.smscodehelper.widget.EditPreference:
+    me.gitai.library.widget.MaterialDialog licenseDialog -> a
+    android.content.Context ctx -> b
+    java.lang.String def_hint -> c
+    java.lang.String def_text -> d
+    android.widget.EditText editText -> e
+    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    void <init>(android.content.Context) -> <init>
+    void initTypedArray(android.util.AttributeSet) -> a
+    void init(android.content.Context) -> a
+    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+me.gitai.smscodehelper.widget.EditPreference$1 -> me.gitai.smscodehelper.widget.a:
+    me.gitai.smscodehelper.widget.EditPreference this$0 -> a
+    void <init>(me.gitai.smscodehelper.widget.EditPreference) -> <init>
+    boolean onClick(android.view.View,android.view.View) -> a
+me.gitai.smscodehelper.widget.EditPreference$2 -> me.gitai.smscodehelper.widget.b:
+    me.gitai.smscodehelper.widget.EditPreference this$0 -> a
+    void <init>(me.gitai.smscodehelper.widget.EditPreference) -> <init>
+    boolean onInflate(android.view.View) -> a
+me.gitai.smscodehelper.widget.GuessPreference -> me.gitai.smscodehelper.widget.GuessPreference:
+    me.gitai.library.widget.MaterialDialog licenseDialog -> b
+    java.util.Set providers -> a
+    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    void <init>(android.content.Context) -> <init>
+    void init(android.content.Context) -> a
+    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+me.gitai.smscodehelper.widget.LicensePreference -> me.gitai.smscodehelper.widget.LicensePreference:
+    me.gitai.library.widget.MaterialDialog licenseDialog -> a
+    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    void <init>(android.content.Context) -> <init>
+    void init(android.content.Context) -> a
+    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+me.gitai.smscodehelper.widget.VersionPreference -> me.gitai.smscodehelper.widget.VersionPreference:
+    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    void <init>(android.content.Context) -> <init>
+    void init() -> a

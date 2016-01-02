@@ -8,6 +8,6 @@
 <string-array name="parse_type_entries">
     <item>魔趣OS</item>
     <item>V1</item>
-    <item>DIY</item>
+    <item>自定义</item>
 </string-array>
 </resources>

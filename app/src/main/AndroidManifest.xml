@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="rikka.smscodehelper">
+    package="me.gitai.smscodehelper">
 
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <!--uses-permission android:name="android.permission.READ_SMS"/-->
+    <!--uses-permission android:name="android.permission.WRITE_SMS"/-->
 
     <application
         android:name=".SMSApp"
@@ -12,12 +14,21 @@
         android:theme="@style/AppTheme"
         android:supportsRtl="true">
         <activity android:name=".MainPreferences"
-            android:label="@string/title">
+            android:label="@string/title"
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".receiver.SecretCodeReceiver">
+            <intent-filter>
+                <action android:name = "android.provider.Telephony.SECRET_CODE"/>
+                <data
+                    android:host="767"
+                    android:scheme="android_secret_code"/>
+            </intent-filter>
+        </receiver>
         <receiver android:name=".receiver.SMSBroadcastReceiver">
             <intent-filter android:priority="2147483647">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>

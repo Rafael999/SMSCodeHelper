@@ -1,8 +1,8 @@
-package rikka.smscodehelper.utils;
+package me.gitai.smscodehelper.utils;
 
 import com.mokee.mms.utils.CaptchasUtils;
 
-import rikka.smscodehelper.bean.SMSInfo;
+import me.gitai.smscodehelper.bean.SMSInfo;
 
 /**
  * Created by gitai on 15-12-12.
@@ -13,19 +13,19 @@ public class SMSCode {
     public final static int PARSE_TYPE_V1 = 0x2;
 
     public static SMSInfo parse(String messageBody, String originatingAddress, int type){
-        SMSInfo SMSCode = null;
+        SMSInfo smsinfo = null;
         switch (type){
             case PARSE_TYPE_DIY_REGEX:
-                SMSCode = Regex.parse(messageBody);
+                smsinfo = new Regex(messageBody).getSMSInfo();
                 break;
             case PARSE_TYPE_V1:
-                SMSCode = V1.parse(messageBody);
+                smsinfo = V1.parse(messageBody);
                 break;
             case PARSE_TYPE_MOKEE:
-                SMSCode = findByMokee(messageBody, originatingAddress);
+                smsinfo = findByMokee(messageBody, originatingAddress);
                 break;
         }
-        return SMSCode;
+        return smsinfo;
     }
 
     private static SMSInfo findByMokee(String messageBody, String originatingAddress){

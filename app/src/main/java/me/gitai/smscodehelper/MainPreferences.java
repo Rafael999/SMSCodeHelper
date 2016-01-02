@@ -1,4 +1,4 @@
-package rikka.smscodehelper;
+package me.gitai.smscodehelper;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -20,13 +20,8 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import me.gitai.library.utils.SharedPreferencesUtil;
 import me.gitai.library.widget.MaterialDialog;
+import me.gitai.smscodehelper.utils.CommonUtil;
 
-import com.lidroid.xutils.http.HttpHandler;
-import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest;
-import com.lidroid.xutils.http.client.util.URIBuilder;
-import com.lidroid.xutils.task.PriorityExecutor;
 
 /**
  * Created by gitai on 15-12-12.
@@ -69,7 +64,7 @@ public class MainPreferences extends PreferenceActivity implements Preference.On
         SharedPreferences sharedPreferences = SharedPreferencesUtil.getInstence(null);
 
         hidden_launcher_icon = sharedPreferences.getBoolean("hidden_launcher_icon", false);
-        hideLauncher(hidden_launcher_icon);
+        CommonUtil.hideLauncher(this, hidden_launcher_icon);
 
         preference_hide_launcher_icon = (SwitchPreference)findPreference("hidden_launcher_icon");
         preference_hide_launcher_icon.setOnPreferenceChangeListener(this);
@@ -79,7 +74,7 @@ public class MainPreferences extends PreferenceActivity implements Preference.On
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         switch (preference.getKey()){
             case "hidden_launcher_icon":
-                hideLauncher((Boolean) newValue);
+                CommonUtil.hideLauncher(this, (Boolean) newValue);
                 return true;
         }
         return false;
@@ -133,18 +128,4 @@ public class MainPreferences extends PreferenceActivity implements Preference.On
             ActivityCompat.requestPermissions(this, new String[]{permission}, 0);
         }
     }
-
-    private void hideLauncher(boolean hidden) {
-        PackageManager p = getApplicationContext().getPackageManager();
-
-        int state = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
-        if (hidden){
-            state = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
-        }
-
-        if (p.getComponentEnabledSetting(getComponentName()) != state){
-            p.setComponentEnabledSetting(getComponentName(),state, PackageManager.DONT_KILL_APP);
-        }
-    }
-
 }

@@ -1,10 +1,10 @@
-package rikka.smscodehelper.utils;
+package me.gitai.smscodehelper.utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import rikka.smscodehelper.bean.SMSInfo;
+import me.gitai.smscodehelper.bean.SMSInfo;
 
 /**
  * Created by gitai on 15-12-25.

@@ -1,4 +1,4 @@
-package rikka.smscodehelper;
+package me.gitai.smscodehelper;
 
 import android.app.Application;
 

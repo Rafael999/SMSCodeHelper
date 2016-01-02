@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">SMS Tools</string>
+    <string name="app_name">Captchas Tools</string>
 
-    <string name="title">SMS Tools</string>
+    <string name="title">Captchas Tools</string>
 
     <string name="toast_clipboard_not_empty">Clipboard is`t empty.</string>
+    <string name="toast_providers_is_empty">Providers is empty.</string>
 
     <string name="toast_copy_success_format">%s has been copied to clipboard.</string>
 
@@ -13,22 +14,59 @@
     <string name="exit">Exit</string>
     <string name="permission_denied">Denied..</string>
 
-    <string name="preference_parse_type">Parser</string>
-
-    <string name="preference_copy_title">Auto copy</string>
-
-    <string name="preference_clipboard_check_title">Backup clipboard data</string>
-
-    <string name="preference_notification_title">Notification</string>
-
-    <string name="preference_intercept_title">Intercept</string>
-
     <string name="dialog_licenses_title">Open Source Licenses</string>
 
-    <string name="preference_open_title">Run service</string>
-    <string name="preference_hide_launcher_icon_title">Hide launcher Icon</string>
-
     <string name="preference_category_general">General</string>
+
+    <string name="preference_run_title">Run</string>
+    <string name="preference_run_summary">Run the service for parse the verification code, and not resident memory</string>
+
+    <string name="preference_hide_launcher_icon_title">Hide Icons</string>
+    <string name="preference_hide_launcher_icon_summary">Hide the application icon in the launcher\nDialpad secret code: *#*#767#*#* (SMS)</string>
+
+    <string name="preference_guess_title">Guess providers</string>
+    <string name="preference_guess_summary">Guess providers</string>
+
+    <string name="preference_send_sms_by_uri_title">Send test SMS</string>
+    <string name="preference_send_sms_by_uri_summary">Send a test SMS free</string>
+
+    <string name="preference_category_parse">Parse</string>
+
+    <string name="preference_parse_type_title">Parser</string>
+    <string name="preference_parse_type_summary">Select a parser type</string>
+
+    <string name="preference_parse_keywords_title">Key words</string>
+    <string name="preference_parse_keywords_summary">Trigger a parsing of keywords</string>
+
+    <string name="preference_parse_keywords">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
+    <string name="preference_parse_keywords_hint">Keywords be separated by a space</string>
+
+    <string name="preference_parse_provider_regexs_title">Service providers</string>
+    <string name="preference_parse_provider_regexs_summary">Support only in the custom mode,priority over the built-in parser</string>
+
+    <string name="preference_parse_provider_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
+    <string name="preference_parse_provider_regexs_tip">Regex to match service providers, split by a newline</string>
+
+    <string name="preference_parse_captchas_regexs_title">Verification codes</string>
+    <string name="preference_parse_captchas_regexs_summary">Support only in the custom mode,priority over the built-in parser</string>
+
+    <string name="preference_parse_captchas_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
+    <string name="preference_parse_captchas_regexs_tip">Regex to match the verification code, split by a newline</string>
+
+    <string name="preference_category_task">Task</string>
+
+    <string name="preference_copy_title">Auto Copy</string>
+    <string name="preference_copy_summary">Is automatically copied to the clipboard</string>
+
+    <string name="preference_clipboard_check_title">Open inspection</string>
+    <string name="preference_clipboard_check_summary">Inspection clipboard is empty before copy</string>
+
+    <string name="preference_notification_title">Notification</string>
+    <string name="preference_notification_summary">Shows the verification code,service providers and other information in the notification bar</string>
+
+    <string name="preference_intercept_title">Intercept</string>
+    <string name="preference_intercept_summary">Interception verification code,Block SMS application collection record(4.4 or less)</string>
+
     <string name="preference_category_about">About</string>
 
     <string name="preference_application_open_source_license_title">Open Source Licenses</string>
@@ -37,3 +75,4 @@
     <string name="preference_application_help_feedback_title"><![CDATA[Help & Feedback]]></string>
 
 </resources>
+

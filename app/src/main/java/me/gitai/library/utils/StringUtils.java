@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package rikka.smscodehelper.utils;
+package me.gitai.library.utils;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -1515,6 +1515,10 @@ public abstract class StringUtils {
         return (array == null || array.length == 0);
     }
 
+    public static boolean isEmpty(Set set) {
+        return (set == null || set.size() == 0);
+    }
+
     /**
      * Converts any string into a string that is safe to use as a file name.
      * The result will only include ascii characters and numbers, and the "-","_", and "." characters.
@@ -1540,7 +1544,7 @@ public abstract class StringUtils {
         return builder.toString();
     }
 
-    public static String join(List ls, String str){
+    public static String join(Collection ls, String str){
         StringBuilder stringBuilder = new StringBuilder();
         for (Object obj : ls) {
             stringBuilder.append(obj.toString()).append(str);

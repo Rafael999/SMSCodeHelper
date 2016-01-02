@@ -1,4 +1,4 @@
-package rikka.smscodehelper.receiver;
+package me.gitai.smscodehelper.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import me.gitai.library.utils.ToastUtil;
-import rikka.smscodehelper.R;
-import rikka.smscodehelper.utils.StringUtils;
+import me.gitai.smscodehelper.R;
+import me.gitai.library.utils.StringUtils;
 
 /**
  * Created by gitai on 15-12-30.

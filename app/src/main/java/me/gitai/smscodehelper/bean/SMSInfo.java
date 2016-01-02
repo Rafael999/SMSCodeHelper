@@ -1,4 +1,4 @@
-package rikka.smscodehelper.bean;
+package me.gitai.smscodehelper.bean;
 
 /**
  * Created by gitai on 15-12-25.

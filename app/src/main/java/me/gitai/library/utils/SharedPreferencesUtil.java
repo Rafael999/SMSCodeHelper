@@ -20,7 +20,9 @@ public class SharedPreferencesUtil {
         return PreferenceManager.getDefaultSharedPreferences(ctx);
     }
     public synchronized static SharedPreferences.Editor getEditor(String name){
-        return ctx.getSharedPreferences(name, 0).edit();
+        if (name !=null)
+            return ctx.getSharedPreferences(name, 0).edit();
+        return PreferenceManager.getDefaultSharedPreferences(ctx).edit();
     }
 
 }

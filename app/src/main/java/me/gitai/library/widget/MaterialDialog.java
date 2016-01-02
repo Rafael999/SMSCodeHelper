@@ -22,7 +22,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import rikka.smscodehelper.R;
+import me.gitai.smscodehelper.R;
 
 public class MaterialDialog {
     private static final int BUTTON_BOTTOM = 9;

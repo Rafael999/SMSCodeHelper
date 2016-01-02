@@ -1,13 +1,75 @@
-SMSCodeHelper
+Captchas Tool
 ===============
+
+> 本项目为 [RikkaW/SmsCodeHelper](https://github.com/RikkaW/SmsCodeHelper) 的二次开发的完全不同画风版,主要变化为高度自定义的更多配置项,第三方 `sdk` 的使用
 
 ![](./app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
-Copy verification code from SMS automatically.
+验证码处理工具,检查短信中的验证码并给予在通知栏和Toast显示,输出至剪贴板等操作
+
 
 ## Screener
 
 ![](./Screener/20151225191021.png)
+
+## 更新记录(ChangeLog)
+### [v0.0.4]()
+* 增加简述(即说明)
+* 增加配置项
+	- 自定义触发关键词
+	- 自定义来源及解析正则
+* 反推服务商
+* 拨号盘暗码: `*#*#767#*#*`  (SMS)
+* 增加原生5.0以上Overview Screen卡片颜色
+
+### [v0.0.3](./apk/me.gitai.smscodehelper-release-c3-v0.0.3.apk)
+* 增加配置项
+	- 启用/暂停服务
+	- 自动复制到剪贴板
+		* 检测剪贴板是否为空
+	- 更科学的显示通知
+		* 点击显示短信内容
+		* 点击内容自动复制
+		* 视图中显示来源/校验码/服务商等内容
+* 新通知栏图标
+
+### [v0.0.2(2)](./apk/me.gitai.smscodehelper-release-c2-v0.0.2-t12261829.apk)
+
+* 新图标 @萌萌的小雅酱
+
+### [v0.0.1(1)](./apk/me.gitai.smscodehelper-release-c1-v0.0.1-t12251854.apk)
+
+* 增加 `魔趣 OS` 验证码解析 [`SDK`](http://opengrok.mokeedev.com/mkl-mr1/xref/external/mokee/MoKeeSDKs/libMoKeeCloud/libMoKeeCloud.jar)
+
+### [v1.0.6(10006)](./apk/rikka.smscodehelper-release-c10006-v1.0.6-t12131130.apk)
+
+* 重写/模块化
+* 增加配置界面
+* 增加正则表达式解析
+* 增加通知提醒
+* 精简兼容包(52.2kb)
+
+### [v1.0.5(10005)](https://github.com/RikkaW/SmsCodeHelper)
+
+* 支持含有大写字母的验证码
+* 减少了一点点体积
+* 新的图标
+
+By:  [RikkaW](https://github.com/RikkaW)
+
+## Images
+
+- 萌萌的小雅酱
+	+ mipmap-hdpi/ic_launcher.png
+	+ mipmap-mdpi/ic_launcher.png
+	+ mipmap-xhdpi/ic_launcher.png
+	+ mipmap-xxhdpi/ic_launcher.png
+	+ mipmap-xxxhdpi/ic_launcher.png
+	+ drawable-hdpi/ic_notify.png
+	+ drawable-mdpi/ic_notify.png
+	+ drawable-xhdpi/ic_notify.png
+	+ drawable-xxhdpi/ic_notify.png
+	+ drawable-xxxhdpi/ic_notify.png
 
 ## Build with Gradle
 
@@ -31,60 +93,6 @@ releaseSigning : [
 
 GPLv3+
 
-## Change Log
-
-### v0.0.3(3)
-[Release-v0.0.3.apk](./apk/me.gitai.smscodehelper-release-c3-v0.0.3.apk)
-
-* Add some more custom config items
-	- Run & Stop
-	- Auth Copy
-		* Clipboard isEmpty check
-	- Show Notification
-
-### v0.0.2(2)
-
-[Release-v0.0.2.apk](./apk/me.gitai.smscodehelper-release-c2-v0.0.2-t12261829.apk)
-
-* New Logo
-
-### v0.0.1(1)
-
-[Release-v0.0.1.apk](./apk/me.gitai.smscodehelper-release-c1-v0.0.1-t12251854.apk)
-
-* Add Mokee Captchas Parser
-* Modularization
-
-### v1.0.6(10006)
-
-[Release-v1.0.6.apk](./apk/rikka.smscodehelper-release-c10006-v1.0.6-t12131130.apk)
-
-* Rewrite
-* Add Preferences Activity
-* Add Regex Parser type
-* Notification
-* Minify apk size(52.2kb)
-* more...
-
-by gitai/dphdjy
-
-### v1.0.5(10005)
-
-* 支持含有大写字母的验证码
-* 减少了一点点体积
-* 新的图标
-
-## Images
-
-- @萌萌的小雅酱
-	+ mipmap-hdpi/ic_launcher.png
-	+ mipmap-mdpi/ic_launcher.png
-	+ mipmap-xhdpi/ic_launcher.png
-	+ mipmap-xxhdpi/ic_launcher.png
-	+ mipmap-xxxhdpi/ic_launcher.png
-
 ## Libraries
 
 - [systembartint](https://github.com/jgilfelt/SystemBarTint)
-
-- [HostsEditor-HostsHub](https://github.com/HostsHub/HostsEditor-for-Android)
