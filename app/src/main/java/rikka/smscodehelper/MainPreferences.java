@@ -21,6 +21,13 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import me.gitai.library.utils.SharedPreferencesUtil;
 import me.gitai.library.widget.MaterialDialog;
 
+import com.lidroid.xutils.http.HttpHandler;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
+import com.lidroid.xutils.http.client.util.URIBuilder;
+import com.lidroid.xutils.task.PriorityExecutor;
+
 /**
  * Created by gitai on 15-12-12.
  */

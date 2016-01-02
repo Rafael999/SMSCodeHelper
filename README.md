@@ -29,7 +29,7 @@ releaseSigning : [
 
 ## Licenses
 
-~~GPLv3+~~
+GPLv3+
 
 ## Change Log
 
@@ -88,9 +88,3 @@ by gitai/dphdjy
 - [systembartint](https://github.com/jgilfelt/SystemBarTint)
 
 - [HostsEditor-HostsHub](https://github.com/HostsHub/HostsEditor-for-Android)
-
-
-## ~~Decompilation~~
-
-* [Flyme OS 5.5.12.22 beta ](./Decompilation/FlymeOS)
-* [miui_MI3WMI4W_5.12.4_1836e1cc3c_4.4](./Decompilation/MIUI)
