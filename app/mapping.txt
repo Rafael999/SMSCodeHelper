@@ -238,29 +238,7 @@ android.support.v4.app.RemoteInputCompatJellybean -> a.a.a.a.ay:
     android.os.Bundle[] toBundleArray(android.support.v4.app.RemoteInputCompatBase$RemoteInput[]) -> a
 android.support.v4.content.ContextCompat -> a.a.a.b.a:
     int checkSelfPermission(android.content.Context,java.lang.String) -> a
-com.mokee.mms.utils.CaptchasUtils -> b.a.a.a.a:
-    java.lang.String[] g -> b
-    java.lang.String[] d -> c
-    java.lang.String[] f -> d
-    java.lang.String[] c -> e
-    java.lang.String[] e -> f
-    int b -> a
-    java.lang.String[] a -> g
-    void <clinit>() -> <clinit>
-    boolean isCaptchasMessage(java.lang.String) -> a
-    boolean isCaptchasEnMessage(java.lang.String) -> b
-    boolean isChineseContains(java.lang.String) -> c
-    java.lang.String tryToGetCnCaptchas(java.lang.String) -> d
-    java.lang.String tryToGetEnCaptchas(java.lang.String) -> e
-    int a(java.lang.String) -> f
-    boolean b(java.lang.String,java.lang.String) -> b
-    boolean a(java.lang.String,java.lang.String) -> c
-    boolean c(java.lang.String,java.lang.String) -> d
-    java.lang.String getCaptchaProvider(java.lang.String,java.lang.String) -> a
-    java.lang.String a(java.lang.String,java.lang.String,java.lang.String) -> a
-com.mokee.volley.VolleyError -> b.a.b.a:
-    boolean b -> a
-com.readystatesoftware.systembartint.SystemBarTintManager -> b.b.a.a:
+com.readystatesoftware.systembartint.SystemBarTintManager -> b.a.a.a:
     java.lang.String sNavBarOverride -> a
     com.readystatesoftware.systembartint.SystemBarTintManager$SystemBarConfig mConfig -> b
     boolean mStatusBarAvailable -> c
@@ -275,8 +253,8 @@ com.readystatesoftware.systembartint.SystemBarTintManager -> b.b.a.a:
     void setupNavBarView(android.content.Context,android.view.ViewGroup) -> b
     java.lang.String access$100() -> a
     void <clinit>() -> <clinit>
-com.readystatesoftware.systembartint.SystemBarTintManager$1 -> b.b.a.b:
-com.readystatesoftware.systembartint.SystemBarTintManager$SystemBarConfig -> b.b.a.c:
+com.readystatesoftware.systembartint.SystemBarTintManager$1 -> b.a.a.b:
+com.readystatesoftware.systembartint.SystemBarTintManager$SystemBarConfig -> b.a.a.c:
     boolean mTranslucentStatusBar -> a
     boolean mTranslucentNavBar -> b
     int mStatusBarHeight -> c
@@ -299,18 +277,39 @@ com.readystatesoftware.systembartint.SystemBarTintManager$SystemBarConfig -> b.b
     int getNavigationBarHeight() -> d
     int getNavigationBarWidth() -> e
     void <init>(android.app.Activity,boolean,boolean,com.readystatesoftware.systembartint.SystemBarTintManager$1) -> <init>
-me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.a:
+me.gitai.library.utils.L -> me.gitai.a.a.a:
+    java.lang.String TAG -> a
+    boolean isToLogcat -> b
+    boolean isToFile -> c
+    java.lang.String filePath -> d
+    java.text.SimpleDateFormat DATE_FORMAT -> e
+    java.text.SimpleDateFormat DATE_TIME_FORMAT -> f
+    void <init>() -> <init>
+    void d(java.lang.String) -> a
+    void log(int,java.lang.String,java.lang.Throwable) -> a
+    java.lang.String getTag(java.lang.StackTraceElement) -> a
+    java.lang.String getCodeLocation(java.lang.StackTraceElement) -> b
+    boolean isLogcatEnabled() -> a
+    boolean isLogToFileEnabled() -> b
+    void writeFile(java.lang.String,java.lang.String,java.lang.String) -> a
+    java.io.File getLogFile() -> c
+    java.io.File creatFileIfNotExists(java.io.File) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.b:
     android.content.Context ctx -> a
     void initialize(android.content.Context) -> a
     android.content.SharedPreferences getInstence(java.lang.String) -> a
-    android.content.SharedPreferences$Editor getEditor(java.lang.String) -> b
-me.gitai.library.utils.StringUtils -> me.gitai.a.a.b:
+me.gitai.library.utils.StringUtils -> me.gitai.a.a.c:
     char[] HEX_DIGITS -> a
     boolean isEmpty(java.lang.CharSequence) -> a
     boolean isEmpty(java.util.Set) -> a
     java.lang.String join(java.util.Collection,java.lang.String) -> a
+    boolean isChinese(java.lang.String) -> a
+    boolean test(java.lang.String,java.lang.String) -> a
+    boolean test(java.lang.String,java.lang.String,int) -> a
+    java.lang.String match(java.lang.String,java.lang.String) -> b
     void <clinit>() -> <clinit>
-me.gitai.library.utils.ToastUtil -> me.gitai.a.a.c:
+me.gitai.library.utils.ToastUtil -> me.gitai.a.a.d:
     android.app.Application sContext -> a
     void <init>() -> <init>
     void initialize(android.app.Application) -> a
@@ -393,11 +392,9 @@ me.gitai.library.widget.MaterialDialog$OnClickListener -> me.gitai.a.b.e:
 me.gitai.library.widget.MaterialDialog$OnViewInflateListener -> me.gitai.a.b.f:
     boolean onInflate(android.view.View) -> a
 me.gitai.smscodehelper.MainPreferences -> me.gitai.smscodehelper.MainPreferences:
-    android.preference.SwitchPreference preference_hide_launcher_icon -> a
-    boolean hidden_launcher_icon -> b
     void <init>() -> <init>
     void onCreate(android.os.Bundle) -> onCreate
-    boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+    void onDestroy() -> onDestroy
     void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
     void setFitsSystemWindows(boolean) -> a
     void setTranslucentStatus(boolean) -> b
@@ -420,60 +417,46 @@ me.gitai.smscodehelper.R$styleable -> me.gitai.smscodehelper.d:
 me.gitai.smscodehelper.SMSApp -> me.gitai.smscodehelper.SMSApp:
     void <init>() -> <init>
     void onCreate() -> onCreate
-me.gitai.smscodehelper.bean.SMSInfo -> me.gitai.smscodehelper.a.a:
-    java.lang.String _id -> a
-    java.lang.String thread_id -> b
-    java.lang.String smsAddress -> c
-    java.lang.String smsBody -> d
-    java.lang.String read -> e
-    java.lang.String action -> f
-    java.lang.String sender -> g
-    java.lang.String code -> h
+me.gitai.smscodehelper.bean.MSG -> me.gitai.smscodehelper.a.a:
+    java.lang.String address -> a
+    java.lang.String body -> b
+    java.lang.String sender -> c
+    java.lang.String code -> d
+    me.gitai.smscodehelper.bean.MSG createFromPdu(java.lang.Object) -> a
+    me.gitai.smscodehelper.bean.MSG createFromSmsMessage(android.telephony.SmsMessage) -> a
     void <init>() -> <init>
     void <init>(java.lang.String,java.lang.String) -> <init>
+    java.lang.String getAddress() -> a
+    void setAddress(java.lang.String) -> a
+    java.lang.String getBody() -> b
+    void setBody(java.lang.String) -> b
+    java.lang.String getSender() -> c
+    void setSender(java.lang.String) -> c
+    java.lang.String getCode() -> d
+    void setCode(java.lang.String) -> d
+    boolean equals(java.lang.Object) -> equals
+    int hashCode() -> hashCode
 me.gitai.smscodehelper.receiver.CopyReceiver -> me.gitai.smscodehelper.receiver.CopyReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
 me.gitai.smscodehelper.receiver.SMSBroadcastReceiver -> me.gitai.smscodehelper.receiver.SMSBroadcastReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    void notification(android.content.Context,me.gitai.smscodehelper.bean.SMSInfo) -> a
+    void notification(android.content.Context,me.gitai.smscodehelper.bean.MSG) -> a
 me.gitai.smscodehelper.receiver.SecretCodeReceiver -> me.gitai.smscodehelper.receiver.SecretCodeReceiver:
-    java.lang.String SECRET_CODE_ACTION -> a
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-me.gitai.smscodehelper.utils.CommonUtil -> me.gitai.smscodehelper.b.a:
+me.gitai.smscodehelper.utils.Captchas -> me.gitai.smscodehelper.b.a:
+    java.lang.String keywords -> a
+    java.lang.String ambiguities -> b
+    me.gitai.smscodehelper.bean.MSG msg -> c
+    void <init>(me.gitai.smscodehelper.bean.MSG,int) -> <init>
+    void init() -> b
+    me.gitai.smscodehelper.bean.MSG parseAuto() -> a
+    void <clinit>() -> <clinit>
+me.gitai.smscodehelper.utils.CommonUtil -> me.gitai.smscodehelper.b.b:
     void hideLauncher(android.app.Activity,boolean) -> a
     void hideLauncher(android.content.Context,android.content.ComponentName,boolean) -> a
-me.gitai.smscodehelper.utils.Regex -> me.gitai.smscodehelper.b.b:
-    java.lang.String def_keywords -> a
-    java.lang.String def_provider_regexs -> b
-    java.lang.String def_captchas_regexs -> c
-    java.lang.String[] keywords -> d
-    java.lang.String[] provider_regexs -> e
-    java.lang.String[] captchas_regexs -> f
-    me.gitai.smscodehelper.bean.SMSInfo smsinfo -> g
-    android.content.SharedPreferences shared -> h
-    void <init>(java.lang.String) -> <init>
-    me.gitai.smscodehelper.bean.SMSInfo getSMSInfo() -> a
-    boolean isCaptchasMessage(java.lang.String) -> a
-    java.lang.String getCaptchaProvider(java.lang.String) -> b
-    java.lang.String tryToGetCnCaptchas(java.lang.String) -> c
-    void <clinit>() -> <clinit>
-me.gitai.smscodehelper.utils.SMSCode -> me.gitai.smscodehelper.b.c:
-    me.gitai.smscodehelper.bean.SMSInfo parse(java.lang.String,java.lang.String,int) -> a
-    me.gitai.smscodehelper.bean.SMSInfo findByMokee(java.lang.String,java.lang.String) -> a
-me.gitai.smscodehelper.utils.V1 -> me.gitai.smscodehelper.b.d:
-    me.gitai.smscodehelper.bean.SMSInfo parse(java.lang.String) -> a
-    java.lang.String cutSenderFromString(java.util.ArrayList,java.lang.String,java.lang.String,java.lang.String) -> a
-    int findKeyWord(java.lang.String) -> b
-    java.util.ArrayList findCodeSentence(java.lang.String) -> c
-    boolean isCodeChar(char) -> a
-    java.lang.String findCode(java.lang.String) -> d
-me.gitai.smscodehelper.utils.V1$1 -> me.gitai.smscodehelper.b.e:
-    void <init>() -> <init>
-    int compare(java.lang.String,java.lang.String) -> a
-    int compare(java.lang.Object,java.lang.Object) -> compare
 me.gitai.smscodehelper.widget.EditPreference -> me.gitai.smscodehelper.widget.EditPreference:
     me.gitai.library.widget.MaterialDialog licenseDialog -> a
     android.content.Context ctx -> b

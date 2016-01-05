@@ -36,6 +36,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Miscellaneous {@link String} utility methods.
@@ -1550,5 +1552,27 @@ public abstract class StringUtils {
             stringBuilder.append(obj.toString()).append(str);
         }
         return stringBuilder.toString();
+    }
+
+    public static boolean isChinese(String s){
+        return test("[\u4e00-\u9fa5]", s);
+    }
+
+    public static  boolean test(String regex, String body){
+        return test(regex, body, 0);
+    }
+    public static  boolean test(String regex, String body, int flags){
+        if (isEmpty(body)){
+            return false;
+        }
+        return Pattern.compile(regex, flags).matcher(body).find();
+    }
+
+    public static String match(String regex, String body){
+        Matcher matcher = Pattern.compile(regex).matcher(body);
+        if (matcher.find()){
+            return matcher.group(0);
+        }
+        return null;
     }
 }

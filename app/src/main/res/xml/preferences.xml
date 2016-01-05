@@ -3,33 +3,27 @@
     xmlns:preference="http://schemas.android.com/apk/res-auto"
     android:persistent="true">
     <PreferenceCategory android:title="@string/preference_category_general">
-        <SwitchPreference android:key="run"
+        <SwitchPreference android:key="general_run"
             android:title="@string/preference_run_title"
             android:summary="@string/preference_run_summary"
             android:defaultValue="true"/>
-        <SwitchPreference android:key="hidden_launcher_icon"
-            android:dependency="run"
+        <SwitchPreference android:key="general_hidden_launcher_icon"
+            android:dependency="general_run"
             android:title="@string/preference_hide_launcher_icon_title"
             android:summary="@string/preference_hide_launcher_icon_summary"
             android:defaultValue="false"/>
-        <me.gitai.smscodehelper.widget.GuessPreference android:key="guess"
+        <me.gitai.smscodehelper.widget.GuessPreference android:key="general_guess"
             android:title="@string/preference_guess_title"
             android:summary="@string/preference_guess_summary"/>
-        <!--me.gitai.smscodehelper.widget.TestPreference android:key="sendSMSByUri"
-            android:dependency="run"
-            android:title="@string/preference_send_sms_by_uri_title"
-            android:summary="@string/preference_send_sms_by_uri_summary"
-            preference:hint="@string/captchas_keywords_hint"
-            android:defaultValue="@array/sms_themes"/-->
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preference_category_parse">
-        <ListPreference android:key="parse_type"
-            android:dependency="run"
+        <!--ListPreference android:key="parse_type"
+            android:dependency="general_run"
             android:title="@string/preference_parse_type_title"
             android:summary="@string/preference_parse_type_summary"
             android:defaultValue="1"
             android:entryValues="@array/parse_type_values"
-            android:entries="@array/parse_type_entries"/>
+            android:entries="@array/parse_type_entries"/-->
         <me.gitai.smscodehelper.widget.EditPreference
             android:key="parse_keywords"
             android:title="@string/preference_parse_keywords_title"
@@ -37,6 +31,12 @@
             android:defaultValue="@string/preference_parse_keywords"
             preference:hint="@string/preference_parse_keywords_hint"/>
         <me.gitai.smscodehelper.widget.EditPreference
+            android:key="parse_ambiguities"
+            android:title="@string/preference_parse_ambiguities_title"
+            android:summary="@string/preference_parse_ambiguities_summary"
+            android:defaultValue="@string/preference_parse_ambiguities"
+            preference:hint="@string/preference_parse_ambiguities_hint"/>
+        <!--me.gitai.smscodehelper.widget.EditPreference
             android:key="parse_provider_regexs"
             android:title="@string/preference_parse_provider_regexs_title"
             android:summary="@string/preference_parse_provider_regexs_summary"
@@ -47,51 +47,62 @@
             android:title="@string/preference_parse_captchas_regexs_title"
             android:summary="@string/preference_parse_captchas_regexs_summary"
             android:defaultValue="@string/preference_parse_captchas_regexs_default"
-            preference:hint="@string/preference_parse_captchas_regexs_tip"/>
+            preference:hint="@string/preference_parse_captchas_regexs_tip"/-->
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preference_category_task">
-        <SwitchPreference android:key="copy"
-            android:dependency="run"
+        <SwitchPreference android:key="task_copy"
+            android:dependency="general_run"
             android:title="@string/preference_copy_title"
             android:summary="@string/preference_copy_summary"
             android:defaultValue="false"/>
-        <SwitchPreference android:key="clipboard_check"
-            android:dependency="copy"
+        <SwitchPreference android:key="task_clipboard_check"
+            android:dependency="task_copy"
             android:title="@string/preference_clipboard_check_title"
             android:summary="@string/preference_clipboard_check_summary"
             android:defaultValue="false"/>
-        <SwitchPreference android:key="notification"
-            android:dependency="run"
+        <SwitchPreference android:key="task_notification"
+            android:dependency="general_run"
             android:title="@string/preference_notification_title"
             android:summary="@string/preference_notification_summary"
             android:defaultValue="true"/>
-        <!--SwitchPreference android:key="intercept"
-            android:dependency="run"
+        <!--SwitchPreference android:key="task_intercept"
+            android:dependency="general_run"
             android:title="@string/preference_intercept_title"
             android:summary="@string/preference_intercept_summary"
             android:defaultValue="false"/-->
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preference_category_about">
         <Preference
-            android:key="help_feedback"
-            android:title="@string/preference_application_help_feedback_title">
+            android:key="about_help_feedback"
+            android:title="@string/preference_application_help_feedback_title"
+            android:summary="@string/preference_application_help_feedback_summary">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="http://gitai.me/2015/12/13/me.gitai.smscodehelper">
             </intent>
         </Preference>
         <Preference
+            android:key="about_rate_app"
             android:title="@string/preference_application_rate_app_title">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="market://details?id=me.gitai.smscodehelper">
             </intent>
         </Preference>
+        <Preference
+            android:key="about_donate"
+            android:title="@string/preference_application_donate_title"
+            android:summary="@string/preference_application_donate_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://gitai.me/donate">
+            </intent>
+        </Preference>
         <me.gitai.smscodehelper.widget.LicensePreference
-            android:key="application_open_source_license"
+            android:key="about_open_source_license"
             android:title="@string/preference_application_open_source_license_title"/>
         <me.gitai.smscodehelper.widget.VersionPreference
-            android:key="application_version"
+            android:key="about_version"
             android:title="@string/preference_application_version_title"/>
     </PreferenceCategory>
 </PreferenceScreen>

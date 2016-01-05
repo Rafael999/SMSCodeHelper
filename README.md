@@ -13,7 +13,15 @@ Captchas Tool
 ![](./Screener/20151225191021.png)
 
 ## 更新记录(ChangeLog)
-### [v0.0.4]()
+### [v0.0.5](./apk/me.gitai.smscodehelper-release-c5-v0.0.5.apk)
+* 优化整合解析器
+* 更少配置项
+	- 去除自定义触发关键词
+	- 去除自定义来源及解析正则
+* 修复透明状态栏及阴影重叠问题
+* 增加测试用例 100+
+
+### [v0.0.4](./apk/me.gitai.smscodehelper-release-c4-v0.0.4.apk)
 * 增加简述(即说明)
 * 增加配置项
 	- 自定义触发关键词

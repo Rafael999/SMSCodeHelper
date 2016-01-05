@@ -37,9 +37,13 @@
 
     <string name="preference_parse_keywords_title">Key words</string>
     <string name="preference_parse_keywords_summary">Trigger a parsing of keywords</string>
+    <string name="preference_parse_keywords">验证码|校验码|动态码|确认码|随机码|验证|校验|验证密码|动态密码|校验密码|随机密码|确认密码|激活码|兑换码|认证码|认证号码|认证密码|交易码|交易密码|授权码|操作码|密码|提取码</string>
+    <string name="preference_parse_keywords_hint">Keywords be separated by "|"</string>
 
-    <string name="preference_parse_keywords">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
-    <string name="preference_parse_keywords_hint">Keywords be separated by a space</string>
+    <string name="preference_parse_ambiguities_title">Ambiguous</string>
+    <string name="preference_parse_ambiguities_summary">Resolving the conflicts that arise when a single term is ambiguous.</string>
+    <string name="preference_parse_ambiguities">google|facebook</string>
+    <string name="preference_parse_ambiguities_hint">Keywords be separated by "|"</string>
 
     <string name="preference_parse_provider_regexs_title">Service providers</string>
     <string name="preference_parse_provider_regexs_summary">Support only in the custom mode,priority over the built-in parser</string>
@@ -73,6 +77,9 @@
     <string name="preference_application_version_title">Application version</string>
     <string name="preference_application_rate_app_title">Rate App</string>
     <string name="preference_application_help_feedback_title"><![CDATA[Help & Feedback]]></string>
+    <string name="preference_application_help_feedback_summary"></string>
+    <string name="preference_application_donate_title">Donate</string>
+    <string name="preference_application_donate_summary">Alipay: i@gitai.me</string>
 
 </resources>
 

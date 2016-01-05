@@ -9,21 +9,21 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
-import android.telephony.SmsMessage;
 
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import me.gitai.library.utils.SharedPreferencesUtil;
 import me.gitai.library.utils.StringUtils;
 import me.gitai.library.utils.ToastUtil;
+import me.gitai.smscodehelper.Constant;
 import me.gitai.smscodehelper.R;
-import me.gitai.smscodehelper.bean.SMSInfo;
-import me.gitai.smscodehelper.utils.SMSCode;
+import me.gitai.smscodehelper.bean.MSG;
+import me.gitai.smscodehelper.utils.Captchas;
 
 /**
  * Created by Rikka on 2015/12/7.
@@ -34,109 +34,93 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
         SharedPreferences sharedPreferences = SharedPreferencesUtil.getInstence(null);
 
-        if (!sharedPreferences.getBoolean("run", false)){
+        if (!sharedPreferences.getBoolean(Constant.KEY_GENERAL_RUN, false)){
             return;
         }
 
-        if (!sharedPreferences.getBoolean("copy", false) && !sharedPreferences.getBoolean("notification", false) && !sharedPreferences.getBoolean("intercept", false)){
+        if (!sharedPreferences.getBoolean(Constant.KEY_TASK_COPY, false)
+                && !sharedPreferences.getBoolean(Constant.KEY_TASK_NOTIFICATION, false)
+                /*&& !sharedPreferences.getBoolean(Constant.KEY_TASK_INTERCEPT, false)*/){
             return;
         }
 
-        Object[] pdus = (Object[]) intent.getExtras().get("pdus");
+        Object[] pdus = (Object[]) intent.getExtras().get(Constant.KEY_SMS_PDUS);
 
         for (Object p : pdus){
-            byte[] sms = (byte[]) p;
+            MSG msg = MSG.createFromPdu((byte[]) p);
 
-            SmsMessage message = SmsMessage.createFromPdu(sms);
-
-            String content = message.getMessageBody();
-            String number = message.getOriginatingAddress();
-
-            if (StringUtils.isEmpty(content)){
+            if (msg == null){
                 return;
             }
 
-            int parseType = Integer.parseInt(SharedPreferencesUtil.getInstence(null).getString("parse_type", String.valueOf(SMSCode.PARSE_TYPE_V1)));
-            SMSInfo smsinfo = SMSCode.parse(content, number, parseType);
-            if (smsinfo == null || StringUtils.isEmpty(smsinfo.code)){
+            int parseType = Captchas.PARSE_TYPE_AUTO/*Integer.parseInt(
+                    SharedPreferencesUtil.getInstence(null).getString(
+                            Constant.KEY_PARSE_TYPE,
+                            String.valueOf(Captchas.PARSE_TYPE_AUTO)))*/;
+
+            msg = new Captchas(msg, parseType).parseAuto();
+            if (msg == null || StringUtils.isEmpty(msg.getCode())){
                 return;
             }
 
-            smsinfo.smsAddress = number;
-            smsinfo.smsBody = content;
-
-            if (sharedPreferences.getBoolean("copy", false)){
+            if (sharedPreferences.getBoolean(Constant.KEY_TASK_COPY, false)){
                 // 复制到剪贴板
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                if (sharedPreferences.getBoolean("clipboard_check",true) && clipboardManager.hasPrimaryClip()){
-                    notification(context, smsinfo);
+                if (sharedPreferences.getBoolean(Constant.KEY_TASK_CLIPBOARD_CHECK,true) && clipboardManager.hasPrimaryClip()){
+                    notification(context, msg);
                     ToastUtil.show(R.string.toast_clipboard_not_empty);
                 }else{
-                    ClipData clipData = ClipData.newPlainText("SMS Code", smsinfo.code);
+                    ClipData clipData = ClipData.newPlainText("SMS Code", msg.getCode());
                     clipboardManager.setPrimaryClip(clipData);
 
                     // toast
-                    ToastUtil.showId(R.string.toast_copy_success_format,smsinfo.code);
+                    ToastUtil.showId(R.string.toast_copy_success_format,msg.getCode());
                 }
             }
 
-            if (sharedPreferences.getBoolean("notification", false)){
-                notification(context, smsinfo);
+            if (sharedPreferences.getBoolean(Constant.KEY_TASK_NOTIFICATION, false)){
+                notification(context, msg);
             }
 
-            if (sharedPreferences.getBoolean("intercept", false)){
+            if (sharedPreferences.getBoolean(Constant.KEY_TASK_INTERCEPT, false)){
                 //4.4<
                 this.abortBroadcast();
             }
 
-            if (!StringUtils.isEmpty(smsinfo.sender) && !StringUtils.isEmpty(smsinfo.smsAddress)){
-                String provider = String.format("%s(%s)", smsinfo.sender, smsinfo.smsAddress);
-                Set<String> providers = sharedPreferences.getStringSet("guess", new HashSet<String>());
+            if (!StringUtils.isEmpty(msg.getSender())){
+                String provider = String.format("%s(%s)", msg.getSender(), msg.getAddress());
+                Set<String> providers = sharedPreferences.getStringSet(Constant.KEY_GENERAL_GUESS, new HashSet<String>());
                 if (!providers.contains(provider)){
                     providers.add(provider);
-                    sharedPreferences.edit().putStringSet("guess", providers).commit();
+                    sharedPreferences.edit()
+                            .putStringSet(Constant.KEY_GENERAL_GUESS, providers)
+                            .apply();
                 }
             }
         }
     }
 
-    public void notification(Context ctx, SMSInfo smsinfo){
-        String msg = "";
-
-        if (!StringUtils.isEmpty(smsinfo.sender)){
-            msg = String.format("%s %s", smsinfo.sender, smsinfo.code);
-        }else{
-            msg=String.format("%s", smsinfo.code);
-        }
-
-        // 来条通知吗 0.0
+    public void notification(Context ctx, MSG msg){
         NotificationCompat.BigTextStyle textStyle = new NotificationCompat.BigTextStyle();
         textStyle
                 .setBigContentTitle(ctx.getString(R.string.app_name))
-                .setSummaryText(smsinfo.smsAddress)
-                .bigText(smsinfo.smsBody);
-
-
-
-
-        Bitmap largeIcon = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.ic_notify);
-
-        Intent intent = new Intent("SMS_CODE_COPY");
-
-        intent.putExtra("smscode", smsinfo.code);
-
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(ctx, 0 ,intent, 0);
+                .setSummaryText(msg.getCode())
+                .bigText(msg.getBody());
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(ctx)
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setLargeIcon(largeIcon)
+                        .setLargeIcon(
+                                BitmapFactory.decodeResource(ctx.getResources(), R.drawable.ic_notify))
                         .setAutoCancel(true)
                         .setContentTitle(ctx.getString(R.string.app_name))
-                        .setContentText(smsinfo.code)
-                        .setContentInfo(smsinfo.sender)
+                        .setContentText(msg.getCode())
+                        .setContentInfo(msg.getSender())
                         .setDefaults(Notification.DEFAULT_ALL)
-                        .setContentIntent(pendingIntent)
+                        .setContentIntent(
+                                PendingIntent.getBroadcast(
+                                    ctx, 0 ,
+                                    new Intent("SMS_CODE_COPY").putExtra(Constant.KEY_BUNDLE_SMS_CODE, msg.getCode()), 0))
                         .setStyle(textStyle);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
@@ -150,7 +134,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
         NotificationManager notificationManager =
                 (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, builder.build());
+        notificationManager.notify(new Random().nextInt(), builder.build());
     }
 
 

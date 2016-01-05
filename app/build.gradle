@@ -20,6 +20,8 @@ android {
         targetSdkVersion config.targetSdkVersion
         versionCode config.versionCode
         versionName config.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -74,7 +76,12 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    testCompile 'junit:junit:4.12'
     compile "com.android.support:support-v4:${versions.androidSupport}"
+
+    testCompile "junit:junit:${versions.junit}"
+    testCompile "org.robolectric:robolectric:${versions.robolectric}"
+    testCompile "com.alibaba:fastjson:${versions.fastjson}"
+
+    androidTestCompile "com.android.support.test.espresso:espresso-core:${versions.espresso}"
+    androidTestCompile "com.android.support.test:runner:${ versions.runner}"
 }

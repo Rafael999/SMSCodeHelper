@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import me.gitai.library.utils.ToastUtil;
+import me.gitai.smscodehelper.Constant;
 import me.gitai.smscodehelper.R;
 import me.gitai.library.utils.StringUtils;
 
@@ -19,19 +20,19 @@ public class CopyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Bundle b = intent.getExtras();
         if (b!=null){
-            String smscode = b.getString("smscode");
+            String code = b.getString(Constant.KEY_BUNDLE_SMS_CODE);
 
-            if (StringUtils.isEmpty(smscode)){
+            if (StringUtils.isEmpty(code)){
                 return;
             }
 
             // 复制到剪贴板
             ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clipData = ClipData.newPlainText("SMS Code", smscode);
+            ClipData clipData = ClipData.newPlainText("SMS Code", code);
             clipboardManager.setPrimaryClip(clipData);
 
             // toast
-            ToastUtil.showId(R.string.toast_copy_success_format,smscode);
+            ToastUtil.showId(R.string.toast_copy_success_format,code);
         }
     }
 }

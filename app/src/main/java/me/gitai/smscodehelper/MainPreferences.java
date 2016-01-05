@@ -2,13 +2,10 @@ package me.gitai.smscodehelper;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.SwitchPreference;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -26,26 +23,25 @@ import me.gitai.smscodehelper.utils.CommonUtil;
 /**
  * Created by gitai on 15-12-12.
  */
-public class MainPreferences extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
-
-    private SwitchPreference preference_hide_launcher_icon;
-    private boolean hidden_launcher_icon;
-
+public class MainPreferences extends PreferenceActivity {
+    @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         addPreferencesFromResource(R.xml.preferences);
 
-        setFitsSystemWindows(true);
-        setTranslucentStatus(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
+            setFitsSystemWindows(true);
+            setTranslucentStatus(true);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(R.color.colorPrimaryDark);
+        }
 
-        getActionBar().setDisplayShowHomeEnabled(false);
-
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(R.color.colorPrimaryDark);
+        if (getActionBar() != null){
+            getActionBar().setDisplayShowHomeEnabled(false);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             MaterialDialog materialDialog = new MaterialDialog(this);
@@ -59,25 +55,13 @@ public class MainPreferences extends PreferenceActivity implements Preference.On
             });
             materialDialog.show();
         }
-
-        SharedPreferences.Editor editor = SharedPreferencesUtil.getEditor(null);
-        SharedPreferences sharedPreferences = SharedPreferencesUtil.getInstence(null);
-
-        hidden_launcher_icon = sharedPreferences.getBoolean("hidden_launcher_icon", false);
-        CommonUtil.hideLauncher(this, hidden_launcher_icon);
-
-        preference_hide_launcher_icon = (SwitchPreference)findPreference("hidden_launcher_icon");
-        preference_hide_launcher_icon.setOnPreferenceChangeListener(this);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        switch (preference.getKey()){
-            case "hidden_launcher_icon":
-                CommonUtil.hideLauncher(this, (Boolean) newValue);
-                return true;
-        }
-        return false;
+    protected void onDestroy() {
+        CommonUtil.hideLauncher(this,
+                SharedPreferencesUtil.getInstence(null).getBoolean(Constant.KEY_GENERAL_HIDDEN_ICON, false));
+        super.onDestroy();
     }
 
     @Override
@@ -85,17 +69,16 @@ public class MainPreferences extends PreferenceActivity implements Preference.On
         switch (requestCode) {
             case 0:
                 if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    MaterialDialog materialDialog = new MaterialDialog(this);
-
-                    materialDialog.setTitle("OAQ");
-                    materialDialog.setMessage(R.string.permission_denied);
-                    materialDialog.setPositiveButton(R.string.exit, new MaterialDialog.OnClickListener() {
-                        @Override
-                        public boolean onClick(View v, View MaterialDialog) {
-                            finish();
-                            return false;
-                        }
-                    });
+                    MaterialDialog materialDialog = new MaterialDialog(this)
+                            .setTitle("OAQ")
+                            .setMessage(R.string.permission_denied)
+                            .setPositiveButton(R.string.exit, new MaterialDialog.OnClickListener() {
+                                @Override
+                                public boolean onClick(View v, View MaterialDialog) {
+                                    finish();
+                                    return false;
+                                }
+                            });
                     materialDialog.show();
                 }
                 break;

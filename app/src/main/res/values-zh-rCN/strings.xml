@@ -36,19 +36,21 @@
 
     <string name="preference_parse_keywords_title">关键词</string>
     <string name="preference_parse_keywords_summary">触发自动解析的关键词</string>
+    <string name="preference_parse_keywords">验证码|校验码|动态码|确认码|随机码|验证|校验|验证密码|动态密码|校验密码|随机密码|确认密码|激活码|兑换码|认证码|认证号码|认证密码|交易码|交易密码|授权码|操作码|密码|提取码</string>
+    <string name="preference_parse_keywords_hint">可能包含的关键词，使用`|`分隔</string>
 
-    <string name="preference_parse_keywords">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
-    <string name="preference_parse_keywords_hint">可能包含的关键词，使用`空格`分隔</string>
+    <string name="preference_parse_ambiguities_title">消歧义</string>
+    <string name="preference_parse_ambiguities_summary">录入可能会混淆的词</string>
+    <string name="preference_parse_ambiguities">验证码|校验码|动态码|确认码|随机码|验证|校验|验证密码|动态密码|校验密码|随机密码|确认密码|激活码|兑换码|认证码|认证号码|认证密码|交易码|交易密码|授权码|操作码|密码|提取码</string>
+    <string name="preference_parse_ambiguities_hint">可能包含的关键词，使用`|`分隔</string>
 
     <string name="preference_parse_provider_regexs_title">服务商</string>
     <string name="preference_parse_provider_regexs_summary">仅在自定义模式下支持，优先于内建解析器</string>
-
     <string name="preference_parse_provider_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
     <string name="preference_parse_provider_regexs_tip">匹配服务商正则的表达式,通过换行符分割</string>
 
     <string name="preference_parse_captchas_regexs_title">验证码</string>
     <string name="preference_parse_captchas_regexs_summary">仅在自定义模式下支持，优先于内建解析器</string>
-
     <string name="preference_parse_captchas_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
     <string name="preference_parse_captchas_regexs_tip">匹配验证码正则的表达式,通过换行符</string>
 
@@ -73,4 +75,7 @@
     <string name="preference_application_version_title">应用版本</string>
     <string name="preference_application_rate_app_title">评价应用</string>
     <string name="preference_application_help_feedback_title"><![CDATA[帮助 & 反馈]]></string>
+    <string name="preference_application_help_feedback_summary">无法解析请务必提交短信内容</string>
+    <string name="preference_application_donate_title">捐赠</string>
+    <string name="preference_application_donate_summary">支付宝: i@gitai.me</string>
 </resources>
