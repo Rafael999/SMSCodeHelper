@@ -3,7 +3,6 @@ package me.gitai.smscodehelper.utils;
 import java.util.Stack;
 import java.util.regex.Pattern;
 
-import me.gitai.library.utils.L;
 import me.gitai.library.utils.SharedPreferencesUtil;
 import me.gitai.library.utils.StringUtils;
 import me.gitai.smscodehelper.Constant;
@@ -50,11 +49,10 @@ public class Captchas {
                     .replaceAll("【|\\[|\\{|<", " &") // 替换符号标记 左
                     .replaceAll("】|\\]|\\}|>", "& ") // 替换符号标记 右
                     .replaceAll("码(是|为)?(：|:)?", "码是")
-                    .replaceAll("是", " 是 ");
+                    .replaceAll("是|为", " 是 ");
 
             String[] parts =  body.split(",|\\.|!|！|，|。|”|“|\"|（|\\(|）|\\)|\\s"); //分割句子及辅助动词
 
-            L.d(parts.toString());
             int pos = 1000;
             for (int i = parts.length - 1; i >= 0; i--) {
                 String d = parts[i];
@@ -62,6 +60,9 @@ public class Captchas {
                     String code = StringUtils.match("^(G\\-)?[A-Za-z0-9]{4,10}$", d);
                     if ((!StringUtils.isEmpty(code)
                             && !StringUtils.test(ambiguities, code, Pattern.CASE_INSENSITIVE))){
+                        if (code.startsWith("G-")){
+                            code = code.replaceAll("G-","");
+                        }
                         int abs = Math.abs(body.indexOf(code) - body.indexOf("是"));
                         if(abs < pos){
                             pos = abs;
@@ -91,6 +92,9 @@ public class Captchas {
         }
         if (!codes.isEmpty()){
             msg.setCode(codes.pop());
+        }else{
+            msg.setCode(msg.getSender());
+            msg.setSender(null);
         }
         return msg;
     }

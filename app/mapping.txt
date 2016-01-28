@@ -277,29 +277,11 @@ com.readystatesoftware.systembartint.SystemBarTintManager$SystemBarConfig -> b.a
     int getNavigationBarHeight() -> d
     int getNavigationBarWidth() -> e
     void <init>(android.app.Activity,boolean,boolean,com.readystatesoftware.systembartint.SystemBarTintManager$1) -> <init>
-me.gitai.library.utils.L -> me.gitai.a.a.a:
-    java.lang.String TAG -> a
-    boolean isToLogcat -> b
-    boolean isToFile -> c
-    java.lang.String filePath -> d
-    java.text.SimpleDateFormat DATE_FORMAT -> e
-    java.text.SimpleDateFormat DATE_TIME_FORMAT -> f
-    void <init>() -> <init>
-    void d(java.lang.String) -> a
-    void log(int,java.lang.String,java.lang.Throwable) -> a
-    java.lang.String getTag(java.lang.StackTraceElement) -> a
-    java.lang.String getCodeLocation(java.lang.StackTraceElement) -> b
-    boolean isLogcatEnabled() -> a
-    boolean isLogToFileEnabled() -> b
-    void writeFile(java.lang.String,java.lang.String,java.lang.String) -> a
-    java.io.File getLogFile() -> c
-    java.io.File creatFileIfNotExists(java.io.File) -> a
-    void <clinit>() -> <clinit>
-me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.b:
+me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.a:
     android.content.Context ctx -> a
     void initialize(android.content.Context) -> a
     android.content.SharedPreferences getInstence(java.lang.String) -> a
-me.gitai.library.utils.StringUtils -> me.gitai.a.a.c:
+me.gitai.library.utils.StringUtils -> me.gitai.a.a.b:
     char[] HEX_DIGITS -> a
     boolean isEmpty(java.lang.CharSequence) -> a
     boolean isEmpty(java.util.Set) -> a
@@ -309,7 +291,7 @@ me.gitai.library.utils.StringUtils -> me.gitai.a.a.c:
     boolean test(java.lang.String,java.lang.String,int) -> a
     java.lang.String match(java.lang.String,java.lang.String) -> b
     void <clinit>() -> <clinit>
-me.gitai.library.utils.ToastUtil -> me.gitai.a.a.d:
+me.gitai.library.utils.ToastUtil -> me.gitai.a.a.c:
     android.app.Application sContext -> a
     void <init>() -> <init>
     void initialize(android.app.Application) -> a
@@ -346,7 +328,9 @@ me.gitai.library.widget.MaterialDialog -> me.gitai.a.b.a:
     me.gitai.library.widget.MaterialDialog setMessage(int) -> a
     me.gitai.library.widget.MaterialDialog setMessage(java.lang.CharSequence) -> b
     me.gitai.library.widget.MaterialDialog setPositiveButton(int,me.gitai.library.widget.MaterialDialog$OnClickListener) -> a
+    me.gitai.library.widget.MaterialDialog setPositiveButton(java.lang.String,me.gitai.library.widget.MaterialDialog$OnClickListener) -> a
     me.gitai.library.widget.MaterialDialog setNegativeButton(int,me.gitai.library.widget.MaterialDialog$OnClickListener) -> b
+    me.gitai.library.widget.MaterialDialog setNegativeButton(java.lang.String,me.gitai.library.widget.MaterialDialog$OnClickListener) -> b
     android.view.View access$100(me.gitai.library.widget.MaterialDialog) -> a
     android.app.AlertDialog access$202(me.gitai.library.widget.MaterialDialog,android.app.AlertDialog) -> a
     android.content.Context access$300(me.gitai.library.widget.MaterialDialog) -> b
@@ -369,7 +353,7 @@ me.gitai.library.widget.MaterialDialog$1 -> me.gitai.a.b.b:
     me.gitai.library.widget.MaterialDialog this$0 -> b
     void <init>(me.gitai.library.widget.MaterialDialog,me.gitai.library.widget.MaterialDialog$OnClickListener) -> <init>
     void onClick(android.view.View) -> onClick
-me.gitai.library.widget.MaterialDialog$3 -> me.gitai.a.b.c:
+me.gitai.library.widget.MaterialDialog$2 -> me.gitai.a.b.c:
     me.gitai.library.widget.MaterialDialog$OnClickListener val$listener -> a
     me.gitai.library.widget.MaterialDialog this$0 -> b
     void <init>(me.gitai.library.widget.MaterialDialog,me.gitai.library.widget.MaterialDialog$OnClickListener) -> <init>
@@ -440,9 +424,11 @@ me.gitai.smscodehelper.receiver.CopyReceiver -> me.gitai.smscodehelper.receiver.
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
 me.gitai.smscodehelper.receiver.SMSBroadcastReceiver -> me.gitai.smscodehelper.receiver.SMSBroadcastReceiver:
+    android.content.SharedPreferences sharedPreferences -> a
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    void notification(android.content.Context,me.gitai.smscodehelper.bean.MSG) -> a
+    void parse(android.content.Context,me.gitai.smscodehelper.bean.MSG) -> a
+    void notification(android.content.Context,me.gitai.smscodehelper.bean.MSG) -> b
 me.gitai.smscodehelper.receiver.SecretCodeReceiver -> me.gitai.smscodehelper.receiver.SecretCodeReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -492,6 +478,25 @@ me.gitai.smscodehelper.widget.LicensePreference -> me.gitai.smscodehelper.widget
     void <init>(android.content.Context) -> <init>
     void init(android.content.Context) -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+me.gitai.smscodehelper.widget.TestPreference -> me.gitai.smscodehelper.widget.TestPreference:
+    me.gitai.library.widget.MaterialDialog licenseDialog -> a
+    android.content.Context ctx -> b
+    android.widget.EditText et_address -> c
+    android.widget.EditText et_body -> d
+    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    void <init>(android.content.Context) -> <init>
+    void init(android.content.Context) -> a
+    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    void share(java.lang.String) -> a
+me.gitai.smscodehelper.widget.TestPreference$1 -> me.gitai.smscodehelper.widget.c:
+    me.gitai.smscodehelper.widget.TestPreference this$0 -> a
+    void <init>(me.gitai.smscodehelper.widget.TestPreference) -> <init>
+    boolean onClick(android.view.View,android.view.View) -> a
+me.gitai.smscodehelper.widget.TestPreference$2 -> me.gitai.smscodehelper.widget.d:
+    me.gitai.smscodehelper.widget.TestPreference this$0 -> a
+    void <init>(me.gitai.smscodehelper.widget.TestPreference) -> <init>
+    boolean onInflate(android.view.View) -> a
 me.gitai.smscodehelper.widget.VersionPreference -> me.gitai.smscodehelper.widget.VersionPreference:
     void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     void <init>(android.content.Context,android.util.AttributeSet) -> <init>

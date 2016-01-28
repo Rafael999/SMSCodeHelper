@@ -13,6 +13,12 @@ Captchas Tool
 ![](./Screener/20151225191021.png)
 
 ## 更新记录(ChangeLog)
+### [v0.0.6](./apk/me.gitai.smscodehelper-release-c7-v0.0.6.apk)
+* 修复通知图标
+* 增加测试功能
+* 增加部分解析解析
+* 去除Google验证码`G-`
+
 ### [v0.0.5](./apk/me.gitai.smscodehelper-release-c5-v0.0.5.apk)
 * 优化整合解析器
 * 更少配置项

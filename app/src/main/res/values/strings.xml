@@ -14,6 +14,8 @@
     <string name="exit">Exit</string>
     <string name="permission_denied">Denied..</string>
 
+    <string name="test">Test</string>
+
     <string name="dialog_licenses_title">Open Source Licenses</string>
 
     <string name="preference_category_general">General</string>
@@ -26,6 +28,9 @@
 
     <string name="preference_guess_title">Guess providers</string>
     <string name="preference_guess_summary">Guess providers</string>
+
+    <string name="preference_test_title">Test</string>
+    <string name="preference_test_summary">Run test</string>
 
     <string name="preference_send_sms_by_uri_title">Send test SMS</string>
     <string name="preference_send_sms_by_uri_summary">Send a test SMS free</string>

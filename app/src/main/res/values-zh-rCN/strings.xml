@@ -15,6 +15,8 @@
     <string name="exit">退出</string>
     <string name="permission_denied">被拒绝了..</string>
 
+    <string name="test">Test</string>
+
     <string name="preference_category_general">全局</string>
 
     <string name="preference_run_title">开启服务</string>
@@ -25,6 +27,9 @@
 
     <string name="preference_guess_title">反推</string>
     <string name="preference_guess_summary">反推服务商</string>
+
+    <string name="preference_test_title">测试</string>
+    <string name="preference_test_summary">模拟来信测试</string>
 
     <string name="preference_send_sms_by_uri_title">发送测试SMS</string>
     <string name="preference_send_sms_by_uri_summary">免费发送测试短信</string>

@@ -8,13 +8,15 @@ public class Constant {
 
     public static final String COMPONENTNAME_MAIN           = "me.gitai.smscodehelper.MainPreferences";
 
+
+    public static final String KEY_CLIP_LABEL               = "SMSCode";
     public static final String KEY_BUNDLE_SMS_CODE          = "smscode";
     public static final String KEY_SMS_PDUS                 = "pdus";
 
     public static final String KEY_GENERAL_RUN              = "general_run";
     public static final String KEY_GENERAL_HIDDEN_ICON      = "general_hidden_launcher_icon";
     public static final String KEY_GENERAL_GUESS            = "general_guess";
-    public static final String KEY_GENERAL_SEND             = "general_send";
+    public static final String KEY_GENERAL_TEST             = "general_test";
 
     public static final String KEY_PARSE_TYPE               = "parse_type";
     public static final String KEY_PARSE_KEYWORDS           = "parse_keywords";

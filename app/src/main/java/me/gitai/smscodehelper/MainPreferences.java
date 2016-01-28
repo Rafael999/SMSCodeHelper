@@ -2,6 +2,7 @@ package me.gitai.smscodehelper;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import me.gitai.library.utils.SharedPreferencesUtil;
 import me.gitai.library.widget.MaterialDialog;
 import me.gitai.smscodehelper.utils.CommonUtil;
+import me.gitai.smscodehelper.widget.TestPreference;
 
 
 /**
@@ -54,6 +56,11 @@ public class MainPreferences extends PreferenceActivity {
                 }
             });
             materialDialog.show();
+        }
+
+        if (getIntent()!=null && Intent.ACTION_SEND.equals(getIntent().getAction())){
+            ((TestPreference)findPreference(Constant.KEY_GENERAL_TEST))
+                    .share(getIntent().getStringExtra(Intent.EXTRA_TEXT));
         }
     }
 

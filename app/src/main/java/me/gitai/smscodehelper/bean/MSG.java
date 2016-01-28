@@ -24,7 +24,6 @@ public class MSG {
         if (sms.getMessageBody() == null){
             return null;
         }
-
         return new MSG(sms.getOriginatingAddress(), sms.getMessageBody());
     }
 

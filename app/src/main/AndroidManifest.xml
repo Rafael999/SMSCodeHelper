@@ -15,10 +15,15 @@
         android:supportsRtl="true">
         <activity android:name=".MainPreferences"
             android:label="@string/title"
-            android:excludeFromRecents="true">
+            android:excludeFromRecents="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
         <receiver android:name=".receiver.SecretCodeReceiver">

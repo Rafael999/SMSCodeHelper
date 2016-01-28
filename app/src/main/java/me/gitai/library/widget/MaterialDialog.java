@@ -188,34 +188,7 @@ public class MaterialDialog {
     }
 
     public MaterialDialog setPositiveButton(int resId, final OnClickListener listener) {
-        this.mPositiveButton = new Button(this.mContext);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, -2);
-        this.mPositiveButton.setLayoutParams(params);
-        this.mPositiveButton.setBackgroundResource(R.drawable.button);
-        this.mPositiveButton.setTextColor(Color.argb(255, 35, 159, 242));
-        this.mPositiveButton.setText(resId);
-        this.mPositiveButton.setGravity(17);
-        this.mPositiveButton.setTextSize(14.0F);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(this.dip2px(2.0F), 0, this.dip2px(12.0F), this.dip2px(9.0F));
-        this.mPositiveButton.setLayoutParams(layoutParams);
-        this.mPositiveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(listener!=null){
-                    if (listener.onClick(v,MaterialDialog.this.mView)){
-                        MaterialDialog.this.dismiss();
-                    }
-                }else{
-                    MaterialDialog.this.dismiss();
-                }
-            }
-        });
-        if(isLollipop()) {
-            this.mPositiveButton.setBackgroundResource(android.R.color.transparent);
-        }
-
-        return this;
+        return setPositiveButton(mContext.getResources().getString(resId), listener);
     }
 
     public MaterialDialog setPositiveButton(String text, final OnClickListener listener) {
@@ -250,31 +223,7 @@ public class MaterialDialog {
     }
 
     public MaterialDialog setNegativeButton(int resId, final OnClickListener listener) {
-        this.mNegativeButton = new Button(this.mContext);
-        this.mLayoutParams = new LinearLayout.LayoutParams(-2, -2);
-        this.mNegativeButton.setLayoutParams(this.mLayoutParams);
-        this.mNegativeButton.setBackgroundResource(R.drawable.button);
-        this.mNegativeButton.setText(resId);
-        this.mNegativeButton.setTextColor(Color.argb(222, 0, 0, 0));
-        this.mNegativeButton.setTextSize(14.0F);
-        this.mNegativeButton.setGravity(17);
-        this.mNegativeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(listener!=null){
-                    if (listener.onClick(v,MaterialDialog.this.mView)){
-                        MaterialDialog.this.dismiss();
-                    }
-                }else{
-                    MaterialDialog.this.dismiss();
-                }
-            }
-        });
-        if(isLollipop()) {
-            this.mNegativeButton.setBackgroundResource(android.R.color.transparent);
-        }
-
-        return this;
+        return setNegativeButton(mContext.getResources().getString(resId), listener);
     }
 
     public MaterialDialog setNegativeButton(String text, final OnClickListener listener) {

@@ -28,7 +28,7 @@ public class CopyReceiver extends BroadcastReceiver {
 
             // 复制到剪贴板
             ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clipData = ClipData.newPlainText("SMS Code", code);
+            ClipData clipData = ClipData.newPlainText(Constant.KEY_CLIP_LABEL, code);
             clipboardManager.setPrimaryClip(clipData);
 
             // toast
