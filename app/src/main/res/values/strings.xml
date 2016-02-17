@@ -1,90 +1,78 @@
 <resources>
     <string name="app_name">Captchas Tools</string>
-
     <string name="title">Captchas Tools</string>
+
+    <!-- General -->
+
+    <!-- Android M -->
+    <string name="m_get">GET PERMISSION</string>
+    <string name="m_content">
+        After Android 6.0, permission should be authorized by user.
+    </string>
+    <string name="m_denied">Denied...</string>
+    <string name="m_exit">Exit</string>
+
+    <!-- Tips -->
+    <string name="format_copy_success">%s has been copied to clipboard.</string>
 
     <string name="toast_clipboard_not_empty">Clipboard is`t empty.</string>
     <string name="toast_providers_is_empty">Providers is empty.</string>
 
-    <string name="toast_copy_success_format">%s has been copied to clipboard.</string>
+    <!-- Preferences -->
+    <string name="prefs_cats_general">General</string>
+        <string name="prefs_enable">Enable</string>
+        <string name="prefs_enable_summary">
+            Parse verification code, and not resident memory
+        </string>
 
-    <string name="tip_m">After Android 6.0, permission should be authorized by user.\nApp will be hide from launcher if authorized.</string>
+        <string name="prefs_hide_icon">Hide Icon</string>
+        <string name="prefs_hide_icon_summary">
+            Hide application icon in the launcher\nDialpad secret code: *#*#767#*#* (SMS)
+        </string>
 
-    <string name="get_permission">GET PERMISSION</string>
-    <string name="exit">Exit</string>
-    <string name="permission_denied">Denied..</string>
+        <string name="prefs_guess">Guess providers</string>
+        <string name="prefs_guess_summary">Get provider from Message, and save</string>
 
-    <string name="test">Test</string>
+        <string name="prefs_test">Test</string>
 
-    <string name="dialog_licenses_title">Open Source Licenses</string>
+    <string name="prefs_cats_parse">Parse</string>
+        <string name="prefs_parse_keywords">Keywords</string>
+        <string name="prefs_parse_keywords_summary">Trigger a parsing of keywords</string>
+        <string name="prefs_parse_keywords_text" translatable="false">验证码|校验码|动态码|确认码|随机码|验证|校验|验证密码|动态密码|校验密码|随机密码|确认密码|激活码|兑换码|认证码|认证号码|认证密码|交易码|交易密码|授权码|操作码|密码|提取码|安全代码</string>
+        <string name="prefs_parse_keywords_hint">Keywords be separated by "|"</string>
 
-    <string name="preference_category_general">General</string>
+        <string name="prefs_parse_ambiguities">Ambiguous</string>
+        <string name="prefs_parse_ambiguities_summary">Resolving the conflicts that arise when a single term is ambiguous.</string>
+        <string name="prefs_parse_ambiguities_text" translatable="false">google|facebook|steam|microsoft</string>
+        <string name="prefs_parse_ambiguities_hint">Keywords be separated by "|"</string>
 
-    <string name="preference_run_title">Run</string>
-    <string name="preference_run_summary">Run the service for parse the verification code, and not resident memory</string>
+    <string name="prefs_cats_task">Task</string>
+        <string name="prefs_copy">Enable copy</string>
+        <string name="prefs_copy_summary">Automatically copied to the clipboard</string>
 
-    <string name="preference_hide_launcher_icon_title">Hide Icons</string>
-    <string name="preference_hide_launcher_icon_summary">Hide the application icon in the launcher\nDialpad secret code: *#*#767#*#* (SMS)</string>
+        <string name="prefs_clipboard_check">Enable inspection</string>
+        <string name="prefs_clipboard_check_summary">Inspection clipboard`s state before copy</string>
 
-    <string name="preference_guess_title">Guess providers</string>
-    <string name="preference_guess_summary">Guess providers</string>
+        <string name="prefs_notification">Enable notifications</string>
+        <string name="prefs_notification_summary">Shows the verification code,service providers and other information in the notification bar</string>
 
-    <string name="preference_test_title">Test</string>
-    <string name="preference_test_summary">Run test</string>
+        <string name="prefs_intercept">Enable intercept</string>
+        <string name="prefs_intercept_summary">Interception verification code,Block SMS application collection record(4.4 or less)</string>
 
-    <string name="preference_send_sms_by_uri_title">Send test SMS</string>
-    <string name="preference_send_sms_by_uri_summary">Send a test SMS free</string>
+    <string name="prefs_cats_about">About</string>
+        <string name="prefs_app_license">Open Source Licenses</string>
+        <string name="prefs_app_license_content">"SMSCodeHelper\n\nhttps://github.com/gitaiQAQ/SMSCodeHelper\n\nAuthors:\nRikkaW(original author)\ngitai\n\nLogo:\n@萌萌的小雅酱\n\nLibraries:\nsystembartint\nkitkat-sms-patch"</string>
+        <string name="prefs_app_version">Application version</string>
+        <string name="prefs_app_rate">Rate App</string>
+        <string name="prefs_app_feedback">Feedback</string>
+        <string name="prefs_app_donate">Donate</string>
+        <string name="prefs_app_donate_summary">Alipay: i@gitai.me</string>
 
-    <string name="preference_category_parse">Parse</string>
+    <!-- Tasker -->
+    <string name="plugin_name">Captchas Tools</string>
 
-    <string name="preference_parse_type_title">Parser</string>
-    <string name="preference_parse_type_summary">Select a parser type</string>
-
-    <string name="preference_parse_keywords_title">Key words</string>
-    <string name="preference_parse_keywords_summary">Trigger a parsing of keywords</string>
-    <string name="preference_parse_keywords">验证码|校验码|动态码|确认码|随机码|验证|校验|验证密码|动态密码|校验密码|随机密码|确认密码|激活码|兑换码|认证码|认证号码|认证密码|交易码|交易密码|授权码|操作码|密码|提取码</string>
-    <string name="preference_parse_keywords_hint">Keywords be separated by "|"</string>
-
-    <string name="preference_parse_ambiguities_title">Ambiguous</string>
-    <string name="preference_parse_ambiguities_summary">Resolving the conflicts that arise when a single term is ambiguous.</string>
-    <string name="preference_parse_ambiguities">google|facebook</string>
-    <string name="preference_parse_ambiguities_hint">Keywords be separated by "|"</string>
-
-    <string name="preference_parse_provider_regexs_title">Service providers</string>
-    <string name="preference_parse_provider_regexs_summary">Support only in the custom mode,priority over the built-in parser</string>
-
-    <string name="preference_parse_provider_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
-    <string name="preference_parse_provider_regexs_tip">Regex to match service providers, split by a newline</string>
-
-    <string name="preference_parse_captchas_regexs_title">Verification codes</string>
-    <string name="preference_parse_captchas_regexs_summary">Support only in the custom mode,priority over the built-in parser</string>
-
-    <string name="preference_parse_captchas_regexs_default">验证码 校验码 动态码 确认码 随机码 验证密码 动态密码 校验密码 随机密码 确认密码 激活码 兑换码 认证码 认证号码 认证密码 交易码 交易密码 授权码 操作码</string>
-    <string name="preference_parse_captchas_regexs_tip">Regex to match the verification code, split by a newline</string>
-
-    <string name="preference_category_task">Task</string>
-
-    <string name="preference_copy_title">Auto Copy</string>
-    <string name="preference_copy_summary">Is automatically copied to the clipboard</string>
-
-    <string name="preference_clipboard_check_title">Open inspection</string>
-    <string name="preference_clipboard_check_summary">Inspection clipboard is empty before copy</string>
-
-    <string name="preference_notification_title">Notification</string>
-    <string name="preference_notification_summary">Shows the verification code,service providers and other information in the notification bar</string>
-
-    <string name="preference_intercept_title">Intercept</string>
-    <string name="preference_intercept_summary">Interception verification code,Block SMS application collection record(4.4 or less)</string>
-
-    <string name="preference_category_about">About</string>
-
-    <string name="preference_application_open_source_license_title">Open Source Licenses</string>
-    <string name="preference_application_version_title">Application version</string>
-    <string name="preference_application_rate_app_title">Rate App</string>
-    <string name="preference_application_help_feedback_title"><![CDATA[Help & Feedback]]></string>
-    <string name="preference_application_help_feedback_summary"></string>
-    <string name="preference_application_donate_title">Donate</string>
-    <string name="preference_application_donate_summary">Alipay: i@gitai.me</string>
-
+    <!-- Xposed -->
+    <string name="intercept_xposed_summary" translatable="false">Allow SMS Blocker, via kitkat-sms-patch</string>
+    <string name="log">Log</string>
 </resources>
 

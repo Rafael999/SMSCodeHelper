@@ -19,7 +19,7 @@ public class CopyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Bundle b = intent.getExtras();
-        if (b!=null){
+        if (b != null){
             String code = b.getString(Constant.KEY_BUNDLE_SMS_CODE);
 
             if (StringUtils.isEmpty(code)){
@@ -32,7 +32,7 @@ public class CopyReceiver extends BroadcastReceiver {
             clipboardManager.setPrimaryClip(clipData);
 
             // toast
-            ToastUtil.showId(R.string.toast_copy_success_format,code);
+            ToastUtil.showId(R.string.format_copy_success,code);
         }
     }
 }

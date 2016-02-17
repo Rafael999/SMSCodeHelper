@@ -210,7 +210,6 @@ public class L {
                 String time = DATE_TIME_FORMAT.format(new Date(System.currentTimeMillis()));
                 writeFile(time, tag, msg + "\n" + Log.getStackTraceString(throwable));
             }
-
         }
 
     }
@@ -518,7 +517,7 @@ public class L {
         }
     }
 
-    private static File getLogFile() throws IOException {
+    public static File getLogFile() throws IOException {
         File file = new File(filePath,
                 DATE_FORMAT.format(new Date(System.currentTimeMillis())) + LOG_FILE_EXTENSION);
         return creatFileIfNotExists(file);
@@ -550,5 +549,4 @@ public class L {
         intent.putExtra(AbsSendFileService.INTENT_EXTENSION, LOG_FILE_EXTENSION);
         ctx.startService(intent);
     }*/
-
 }

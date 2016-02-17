@@ -15,23 +15,19 @@ import me.gitai.smscodehelper.R;
  * Created by gitai on 15-11-5.
  */
 public class EditPreference extends Preference implements Preference.OnPreferenceClickListener {
-    protected MaterialDialog licenseDialog;
-    protected Context ctx;
-    protected int title;
-    protected String def_hint;
-    protected String def_text;
-    protected EditText editText;
+    private MaterialDialog licenseDialog;
+    private String def_hint;
+    private String def_text;
+    private EditText editText;
 
     public EditPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
-        initTypedArray(attrs);
+        init(context, attrs);
     }
 
     public EditPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
-        initTypedArray(attrs);
+        init(context, attrs);
     }
 
     public EditPreference(Context context) {
@@ -39,14 +35,14 @@ public class EditPreference extends Preference implements Preference.OnPreferenc
         init(context);
     }
 
-    private void initTypedArray(AttributeSet attrs){
-        TypedArray ta = ctx.obtainStyledAttributes(attrs, R.styleable.preference);
+    private void init(Context context, AttributeSet attrs){
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.preference);
         def_hint = ta.getString(R.styleable.preference_hint);
         def_text = ta.getString(R.styleable.preference_text);
+        init(context);
     }
 
     private void init(Context context){
-        ctx = context;
         licenseDialog = new MaterialDialog(context)
                 .setTitle(getTitle())
                 .setContentView(R.layout.layout_editdialog, new MaterialDialog.OnViewInflateListener() {

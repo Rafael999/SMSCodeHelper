@@ -1,6 +1,7 @@
 package me.gitai.smscodehelper.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.preference.Preference;
 import android.util.AttributeSet;
 
@@ -12,15 +13,16 @@ import me.gitai.smscodehelper.R;
  */
 public class LicensePreference extends Preference implements Preference.OnPreferenceClickListener {
     private MaterialDialog licenseDialog;
+    private String def_msg;
 
     public LicensePreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
+        init(context, attrs);
     }
 
     public LicensePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init(context, attrs);
     }
 
     public LicensePreference(Context context) {
@@ -28,11 +30,16 @@ public class LicensePreference extends Preference implements Preference.OnPrefer
         init(context);
     }
 
+    private void init(Context context, AttributeSet attrs){
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.preference);
+        def_msg = ta.getString(R.styleable.preference_text);
+        init(context);
+    }
+
     private void init(Context context){
         licenseDialog = new MaterialDialog(context)
-                .setTitle(context.getString(R.string.dialog_licenses_title))
-                .setMessage("SMSCodeHelper\n\nhttps://github.com/gitaiQAQ/SMSCodeHelper\n\nAuthors:\nRikkaW(original author)\ngitai\n\nLogo:\n@萌萌的小雅酱\n\nLibraries:\nsystembartint")
-                .setNegativeButton(android.R.string.ok, null);
+                .setTitle(getTitle())
+                .setMessage(def_msg);
 
         setOnPreferenceClickListener(this);
     }

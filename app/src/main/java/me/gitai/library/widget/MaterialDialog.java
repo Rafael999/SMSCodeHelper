@@ -280,7 +280,7 @@ public class MaterialDialog {
                     //.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT); //TODO: 全局
             MaterialDialog.this.mAlertDialog.show();
             MaterialDialog.this.mAlertDialog.getWindow().clearFlags(131080);
-            MaterialDialog.this.mAlertDialog.getWindow().setSoftInputMode(4);
+            MaterialDialog.this.mAlertDialog.getWindow().setSoftInputMode(3); //TODO： 软键盘
             this.mAlertDialogWindow = MaterialDialog.this.mAlertDialog.getWindow();
             View contv = LayoutInflater.from(MaterialDialog.this.mContext).inflate(R.layout.layout_materialdialog, (ViewGroup)null);
             contv.setFocusable(true);

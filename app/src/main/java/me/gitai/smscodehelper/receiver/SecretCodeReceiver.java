@@ -5,10 +5,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 
-import me.gitai.library.utils.ToastUtil;
+import me.gitai.library.utils.L;
 import me.gitai.smscodehelper.Constant;
-import me.gitai.smscodehelper.MainPreferences;
-import me.gitai.smscodehelper.R;
+import me.gitai.smscodehelper.ui.MainPreferences;
 import me.gitai.smscodehelper.utils.CommonUtil;
 
 /**
@@ -17,7 +16,7 @@ import me.gitai.smscodehelper.utils.CommonUtil;
 public class SecretCodeReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        ToastUtil.showId(R.string.app_name);
+        L.i("Start by SECRET_CODE");
         CommonUtil.hideLauncher(context, new ComponentName(context.getPackageName(), Constant.COMPONENTNAME_MAIN), false);
         if (intent.getAction().equals(Constant.SECRET_CODE_ACTION)){
             Intent i = new Intent(Intent.ACTION_MAIN);

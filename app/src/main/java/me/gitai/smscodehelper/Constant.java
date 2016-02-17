@@ -13,8 +13,8 @@ public class Constant {
     public static final String KEY_BUNDLE_SMS_CODE          = "smscode";
     public static final String KEY_SMS_PDUS                 = "pdus";
 
-    public static final String KEY_GENERAL_RUN              = "general_run";
-    public static final String KEY_GENERAL_HIDDEN_ICON      = "general_hidden_launcher_icon";
+    public static final String KEY_GENERAL_RUN              = "general_enable";
+    public static final String KEY_GENERAL_HIDDEN_ICON      = "general_hidden_icon";
     public static final String KEY_GENERAL_GUESS            = "general_guess";
     public static final String KEY_GENERAL_TEST             = "general_test";
 

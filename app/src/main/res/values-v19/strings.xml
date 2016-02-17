@@ -1,0 +1,9 @@
+<resources>
+        <string name="prefs_intercept">Enable intercept</string>
+        <string name="prefs_intercept_summary">
+            Android does not allow apps other than the default SMS app to intercept
+            SMS messages or write to the SMS inbox.\n\nTo bypass this restriction,
+            you must install the Xposed and enable. Until you do so, this function will not work.
+        </string>
+</resources>
+

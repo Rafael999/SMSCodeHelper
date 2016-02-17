@@ -101,4 +101,14 @@ public class MSG {
         result = 31 * result + body.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "_id='" + _id + '\'' +
+                ", address='" + address + '\'' +
+                ", body='" + body + '\'' +
+                ", action='" + action + '\'' +
+                ", sender='" + sender + '\'' +
+                ", code='" + code + '\'';
+    }
 }

@@ -49,7 +49,7 @@ public class TestPreference extends Preference implements Preference.OnPreferenc
                         return false;
                     }
                 })
-                .setPositiveButton(R.string.test, new MaterialDialog.OnClickListener() {
+                .setPositiveButton(R.string.prefs_test, new MaterialDialog.OnClickListener() {
                     @Override
                     public boolean onClick(View v, View MaterialDialog) {
                         String address = et_address.getText().toString();
@@ -60,12 +60,13 @@ public class TestPreference extends Preference implements Preference.OnPreferenc
                             return false;
                         }
 
-                        new SMSBroadcastReceiver().parse(ctx, new MSG(address, body));
+                        if (!new SMSBroadcastReceiver().parse(ctx, new MSG(address, body))){
+                            ToastUtil.show("_(:з」∠)_");
+                        }
 
                         return false;
                     }
-                })
-                .setNegativeButton(android.R.string.cancel, null);
+                });
 
         setOnPreferenceClickListener(this);
     }

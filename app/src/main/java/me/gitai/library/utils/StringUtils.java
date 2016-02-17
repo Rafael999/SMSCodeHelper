@@ -75,6 +75,8 @@ public abstract class StringUtils {
 
     private static final char EXTENSION_SEPARATOR = '.';
 
+    public static final String REG_CN = "[\u4e00-\u9fa5]";
+
     // ---------------------------------------------------------------------
     // General convenience methods for working with Strings
     // ---------------------------------------------------------------------
@@ -119,6 +121,10 @@ public abstract class StringUtils {
 
     public static boolean isEmpty(CharSequence text) {
         return text == null || text.length() == 0;
+    }
+
+    public static boolean isEmpty(List<?> coll) {
+        return coll == null || coll.size() == 0;
     }
 
     /**
@@ -211,6 +217,15 @@ public abstract class StringUtils {
         int strLen = str.length();
         for (int i = 0; i < strLen; i++) {
             if (Character.isWhitespace(str.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean contains(String[] strs, String str){
+        for (int i = 0; i < strs.length; i++) {
+            if(strs[i].equals(str)){
                 return true;
             }
         }
@@ -1555,14 +1570,16 @@ public abstract class StringUtils {
     }
 
     public static boolean isChinese(String s){
-        return test("[\u4e00-\u9fa5]", s);
+        return test(REG_CN, s, 0);
     }
 
     public static  boolean test(String regex, String body){
         return test(regex, body, 0);
     }
+
     public static  boolean test(String regex, String body, int flags){
         if (isEmpty(body)){
+            L.d("test body is Empty"+body);
             return false;
         }
         return Pattern.compile(regex, flags).matcher(body).find();

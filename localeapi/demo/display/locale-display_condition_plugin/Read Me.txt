@@ -1,0 +1,1 @@
+This is a sample Locale Plug-in condition that detects when the device's display is turned on and off.  We encourage plug-in developers to use this sample as a template for building new plug-ins.  This plug-in has been implemented using best practices and it includes an extensive test suite that verifies compatibility with Locale.

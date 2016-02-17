@@ -1,0 +1,6 @@
+<resources>
+        <string name="prefs_intercept">启用拦截</string>
+        <string name="prefs_intercept_summary">
+            不允许非默认收信应用拦截短信或者操作收件箱。\n\n为了突破这个限制，你必须安装 Xposed 并且启用。在此之前，这个功能将无法使用。
+        </string>
+</resources>

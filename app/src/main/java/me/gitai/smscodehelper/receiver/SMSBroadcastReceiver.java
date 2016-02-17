@@ -11,20 +11,24 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 
+import me.gitai.library.utils.L;
 import me.gitai.library.utils.SharedPreferencesUtil;
 import me.gitai.library.utils.StringUtils;
 import me.gitai.library.utils.ToastUtil;
 import me.gitai.smscodehelper.Constant;
 import me.gitai.smscodehelper.R;
 import me.gitai.smscodehelper.bean.MSG;
+import me.gitai.smscodehelper.bundle.BundleScrubber;
+import me.gitai.smscodehelper.bundle.PluginBundleManager;
 import me.gitai.smscodehelper.utils.Captchas;
-
 /**
  * Created by Rikka on 2015/12/7.
  */
@@ -33,41 +37,90 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (!sharedPreferences.getBoolean(Constant.KEY_GENERAL_RUN, false)){
-            return;
-        }
-
+        L.d("SMS Received");
         if (!sharedPreferences.getBoolean(Constant.KEY_TASK_COPY, false)
                 && !sharedPreferences.getBoolean(Constant.KEY_TASK_NOTIFICATION, false)
                 /*&& !sharedPreferences.getBoolean(Constant.KEY_TASK_INTERCEPT, false)*/){
+            L.d("Not working(copy,notification: false)");
             return;
         }
 
-        Object[] pdus = (Object[]) intent.getExtras().get(Constant.KEY_SMS_PDUS);
+        if (intent == null){
+            L.d("Not working(intent: null)");
+            return;
+        }
 
-        for (Object p : pdus){
-            MSG msg = MSG.createFromPdu((byte[]) p);
+        Bundle b1 = intent.getExtras();
 
-            if (msg == null){
-                return;
+        if (b1 != null){
+            Object[] pdus = (Object[]) b1.get(Constant.KEY_SMS_PDUS);
+
+            if (pdus != null){
+                if (!sharedPreferences.getBoolean(Constant.KEY_GENERAL_RUN, false)){
+                    L.d("Not working(run: false)");
+                    return;
+                }
+                L.d("Pdus count: " + pdus.length);
+                for (Object p : pdus){
+                    MSG msg = MSG.createFromPdu((byte[]) p);
+
+                    if (msg == null){
+                        L.d("Not working(msg: null)");
+                        return;
+                    }
+
+                    L.d("MSG: " + msg.toString());
+                    parse(context, msg);
+                }
+            }else{
+                /*
+                 * Always be strict on input parameters! A malicious third-party app could send a malformed Intent.
+                 */
+
+                if (!com.twofortyfouram.locale.Intent.ACTION_FIRE_SETTING.equals(intent.getAction()))
+                {
+                    L.e(String.format(Locale.US,
+                            "Received unexpected Intent action %s",
+                            intent.getAction())); //$NON-NLS-1$
+                    return;
+                }
+
+                BundleScrubber.scrub(intent);
+
+                Bundle b2 = intent.getBundleExtra(com.twofortyfouram.locale.Intent.EXTRA_BUNDLE);
+                BundleScrubber.scrub(b2);
+
+                if (PluginBundleManager.isBundleValid(b2))
+                {
+                    String address = b2.getString(PluginBundleManager.BUNDLE_EXTRA_MSG_ADDRESS);
+                    String body = b2.getString(PluginBundleManager.BUNDLE_EXTRA_MSG_BODY);
+                    ToastUtil.show(address, body);
+                }
             }
-
-            parse(context, msg);
+        }else{
+            L.d("Not working(extras is null)");
         }
     }
 
-    public void parse(Context ctx, MSG msg) {
+    public boolean parse(Context ctx, MSG msg) {
         int parseType = Captchas.PARSE_TYPE_AUTO/*Integer.parseInt(
                     SharedPreferencesUtil.getInstence(null).getString(
                             Constant.KEY_PARSE_TYPE,
                             String.valueOf(Captchas.PARSE_TYPE_AUTO)))*/;
 
-        msg = new Captchas(msg, parseType).parseAuto();
+        L.d("parseType:" + parseType);
+
+        msg = new Captchas(ctx, msg, parseType).parseAuto();
+
+        L.d("MSG: " + msg.toString());
+
         if (msg == null || StringUtils.isEmpty(msg.getCode())){
-            return;
+            L.d("Not working(msg,code: null)");
+            return false;
         }
 
         if (sharedPreferences.getBoolean(Constant.KEY_TASK_COPY, false)){
+            L.d("Copyable");
             // 复制到剪贴板
             ClipboardManager clipboardManager = (ClipboardManager) ctx.getSystemService(Context.CLIPBOARD_SERVICE);
             if (sharedPreferences.getBoolean(Constant.KEY_TASK_CLIPBOARD_CHECK,true)
@@ -81,20 +134,29 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
                 clipboardManager.setPrimaryClip(clipData);
 
                 // toast
-                ToastUtil.showId(R.string.toast_copy_success_format,msg.getCode());
+                ToastUtil.showId(R.string.format_copy_success,msg.getCode());
             }
+        }else{
+            L.d("Uncopyable");
         }
 
         if (sharedPreferences.getBoolean(Constant.KEY_TASK_NOTIFICATION, false)){
+            L.d("Noticeable");
             notification(ctx, msg);
+        }else{
+            L.d("Unnoticeable");
         }
 
         if (sharedPreferences.getBoolean(Constant.KEY_TASK_INTERCEPT, false)){
+            L.d("Interceptable");
             //4.4<
             this.abortBroadcast();
+        }else{
+            L.d("Uninterceptable");
         }
 
-        if (!StringUtils.isEmpty(msg.getSender())){
+        if (!StringUtils.isEmpty(msg.getSender()) && msg.getAddress() != "110"){
+            L.d("Sender is " + msg.getSender());
             String provider = String.format("%s(%s)", msg.getSender(), msg.getAddress());
             Set<String> providers = sharedPreferences.getStringSet(Constant.KEY_GENERAL_GUESS, new HashSet<String>());
             if (!providers.contains(provider)){
@@ -104,6 +166,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
                         .apply();
             }
         }
+        return true;
     }
 
     public void notification(Context ctx, MSG msg){

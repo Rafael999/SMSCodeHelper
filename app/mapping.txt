@@ -277,13 +277,117 @@ com.readystatesoftware.systembartint.SystemBarTintManager$SystemBarConfig -> b.a
     int getNavigationBarHeight() -> d
     int getNavigationBarWidth() -> e
     void <init>(android.app.Activity,boolean,boolean,com.readystatesoftware.systembartint.SystemBarTintManager$1) -> <init>
-me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.a:
+com.twofortyfouram.locale.BreadCrumber -> b.b.a.a:
+    java.lang.CharSequence generateBreadcrumb(android.content.Context,android.content.Intent,java.lang.String) -> a
+com.twofortyfouram.locale.api.R -> b.b.a.a.a:
+com.twofortyfouram.locale.api.R$string -> b.b.a.a.b:
+    int twofortyfouram_locale_breadcrumb_format -> twofortyfouram_locale_breadcrumb_format
+    int twofortyfouram_locale_breadcrumb_separator -> twofortyfouram_locale_breadcrumb_separator
+    int twofortyfouram_locale_menu_dontsave -> twofortyfouram_locale_menu_dontsave
+    int twofortyfouram_locale_menu_help -> twofortyfouram_locale_menu_help
+    int twofortyfouram_locale_menu_save -> twofortyfouram_locale_menu_save
+me.gitai.library.utils.L -> me.gitai.a.a.a:
+    java.lang.String TAG -> a
+    boolean isToLogcat -> b
+    boolean isToFile -> c
+    java.lang.String filePath -> d
+    java.text.SimpleDateFormat DATE_FORMAT -> e
+    java.text.SimpleDateFormat DATE_TIME_FORMAT -> f
+    void <init>() -> <init>
+    void i(java.lang.String) -> a
+    void d(java.lang.String) -> b
+    void e(java.lang.String) -> c
+    void e(java.lang.Throwable) -> a
+    void e(java.lang.String,java.lang.Throwable) -> a
+    void log(int,java.lang.String,java.lang.Throwable) -> a
+    java.lang.String getTag(java.lang.StackTraceElement) -> a
+    java.lang.String getCodeLocation(java.lang.StackTraceElement) -> b
+    void setLogcatEnable(android.content.Context,boolean) -> a
+    boolean isLogcatEnabled() -> a
+    void setLogToFileEnable(boolean,android.content.Context) -> a
+    void setLogToFileEnable(boolean,android.content.Context,java.lang.String) -> a
+    boolean isLogToFileEnabled() -> b
+    void writeFile(java.lang.String,java.lang.String,java.lang.String) -> a
+    java.io.File getLogFile() -> c
+    java.io.File creatFileIfNotExists(java.io.File) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.ParseAboutXml -> me.gitai.a.a.b:
+    java.lang.String currTag -> a
+    me.gitai.library.utils.ParseAboutXml$About Parse(android.content.Context,int) -> a
+    me.gitai.library.utils.ParseAboutXml$About Parse(android.content.res.XmlResourceParser) -> a
+me.gitai.library.utils.ParseAboutXml$About -> me.gitai.a.a.c:
+    java.lang.String name -> a
+    java.lang.String icon -> b
+    java.lang.String version -> c
+    java.lang.String code -> d
+    java.lang.String description -> e
+    java.util.List home -> f
+    java.util.List bugs -> g
+    me.gitai.library.utils.ParseAboutXml$Url license -> h
+    me.gitai.library.utils.ParseAboutXml$Repository repository -> i
+    java.util.List authors -> j
+    java.util.List dependencies -> k
+    java.util.List changelogs -> l
+    void <init>() -> <init>
+    java.lang.String getName(java.lang.String) -> a
+    void setName(java.lang.String) -> b
+    void setIcon(java.lang.String) -> c
+    java.lang.String getVersion(java.lang.String) -> d
+    void setVersion(java.lang.String) -> e
+    java.lang.String getCode(java.lang.String) -> f
+    void setCode(java.lang.String) -> g
+    java.lang.String getDescription() -> a
+    void setDescription(java.lang.String) -> h
+    java.util.List getHome() -> b
+    java.util.List getBugs() -> c
+    void setLicense(me.gitai.library.utils.ParseAboutXml$Url) -> a
+    void setRepository(me.gitai.library.utils.ParseAboutXml$Repository) -> a
+    java.util.List getAuthors() -> d
+    java.util.List getDependencies() -> e
+    java.util.List getChangelogs() -> f
+me.gitai.library.utils.ParseAboutXml$Author -> me.gitai.a.a.d:
+    java.lang.String email -> a
+    void <init>(java.lang.String,java.lang.String,java.lang.String) -> <init>
+me.gitai.library.utils.ParseAboutXml$ChangeLog -> me.gitai.a.a.e:
+    java.lang.String type -> a
+    java.lang.String code -> b
+    java.lang.String content -> c
+    void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> <init>
+    java.lang.String getCode() -> a
+    android.text.Spanned getContent() -> b
+    android.text.Spanned toSpanned() -> c
+me.gitai.library.utils.ParseAboutXml$Dependencie -> me.gitai.a.a.f:
+    java.lang.String title -> a
+    java.lang.String code -> b
+    java.lang.String type -> c
+    java.lang.String path -> d
+    me.gitai.library.utils.ParseAboutXml$License license -> e
+    void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,me.gitai.library.utils.ParseAboutXml$License) -> <init>
+me.gitai.library.utils.ParseAboutXml$License -> me.gitai.a.a.g:
+    int type -> a
+    java.lang.String text -> b
+    void <init>(java.lang.String,java.lang.String) -> <init>
+    java.lang.String toString() -> toString
+me.gitai.library.utils.ParseAboutXml$Repository -> me.gitai.a.a.h:
+    int type -> a
+    void <init>(java.lang.String,java.lang.String,java.lang.String) -> <init>
+me.gitai.library.utils.ParseAboutXml$Url -> me.gitai.a.a.i:
+    java.lang.String href -> a
+    java.lang.String name -> b
+    void <init>(java.lang.String,java.lang.String) -> <init>
+    java.lang.String getName() -> d
+me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.j:
     android.content.Context ctx -> a
     void initialize(android.content.Context) -> a
     android.content.SharedPreferences getInstence(java.lang.String) -> a
-me.gitai.library.utils.StringUtils -> me.gitai.a.a.b:
+    android.content.SharedPreferences$Editor getEditor(java.lang.String) -> b
+me.gitai.library.utils.StringUtils -> me.gitai.a.a.k:
     char[] HEX_DIGITS -> a
     boolean isEmpty(java.lang.CharSequence) -> a
+    boolean contains(java.lang.String[],java.lang.String) -> a
+    java.lang.String toString(java.lang.Object[],java.lang.String) -> a
+    java.lang.String toString(java.lang.Object[]) -> a
+    boolean isEmpty(java.lang.Object[]) -> b
     boolean isEmpty(java.util.Set) -> a
     java.lang.String join(java.util.Collection,java.lang.String) -> a
     boolean isChinese(java.lang.String) -> a
@@ -291,12 +395,13 @@ me.gitai.library.utils.StringUtils -> me.gitai.a.a.b:
     boolean test(java.lang.String,java.lang.String,int) -> a
     java.lang.String match(java.lang.String,java.lang.String) -> b
     void <clinit>() -> <clinit>
-me.gitai.library.utils.ToastUtil -> me.gitai.a.a.c:
+me.gitai.library.utils.ToastUtil -> me.gitai.a.a.l:
     android.app.Application sContext -> a
     void <init>() -> <init>
     void initialize(android.app.Application) -> a
     android.app.Application getContext() -> a
     void show(int) -> a
+    void show(java.lang.String,java.lang.String) -> a
     void showId(int,java.lang.Object[]) -> a
     void show(java.lang.String) -> a
 me.gitai.library.widget.MaterialDialog -> me.gitai.a.b.a:
@@ -375,37 +480,29 @@ me.gitai.library.widget.MaterialDialog$OnClickListener -> me.gitai.a.b.e:
     boolean onClick(android.view.View,android.view.View) -> a
 me.gitai.library.widget.MaterialDialog$OnViewInflateListener -> me.gitai.a.b.f:
     boolean onInflate(android.view.View) -> a
-me.gitai.smscodehelper.MainPreferences -> me.gitai.smscodehelper.MainPreferences:
-    void <init>() -> <init>
-    void onCreate(android.os.Bundle) -> onCreate
-    void onDestroy() -> onDestroy
-    void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
-    void setFitsSystemWindows(boolean) -> a
-    void setTranslucentStatus(boolean) -> b
-    void getPermission(java.lang.String) -> a
-    void access$000(me.gitai.smscodehelper.MainPreferences,java.lang.String) -> a
-me.gitai.smscodehelper.MainPreferences$1 -> me.gitai.smscodehelper.a:
-    me.gitai.smscodehelper.MainPreferences this$0 -> a
-    void <init>(me.gitai.smscodehelper.MainPreferences) -> <init>
-    boolean onClick(android.view.View,android.view.View) -> a
-me.gitai.smscodehelper.MainPreferences$2 -> me.gitai.smscodehelper.b:
-    me.gitai.smscodehelper.MainPreferences this$0 -> a
-    void <init>(me.gitai.smscodehelper.MainPreferences) -> <init>
-    boolean onClick(android.view.View,android.view.View) -> a
-me.gitai.smscodehelper.R -> me.gitai.smscodehelper.c:
-me.gitai.smscodehelper.R$styleable -> me.gitai.smscodehelper.d:
+me.gitai.smscodehelper.R -> me.gitai.smscodehelper.a:
+me.gitai.smscodehelper.R$styleable -> me.gitai.smscodehelper.b:
     int[] preference -> preference
     int preference_hint -> preference_hint
     int preference_text -> preference_text
+    int[] version -> version
+    int version_appid -> version_appid
+    int version_code -> version_code
+    int version_logs -> version_logs
+    int version_name -> version_name
+    int version_type -> version_type
     void <clinit>() -> <clinit>
 me.gitai.smscodehelper.SMSApp -> me.gitai.smscodehelper.SMSApp:
     void <init>() -> <init>
     void onCreate() -> onCreate
+    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
 me.gitai.smscodehelper.bean.MSG -> me.gitai.smscodehelper.a.a:
-    java.lang.String address -> a
-    java.lang.String body -> b
-    java.lang.String sender -> c
-    java.lang.String code -> d
+    java.lang.String _id -> a
+    java.lang.String address -> b
+    java.lang.String body -> c
+    java.lang.String action -> d
+    java.lang.String sender -> e
+    java.lang.String code -> f
     me.gitai.smscodehelper.bean.MSG createFromPdu(java.lang.Object) -> a
     me.gitai.smscodehelper.bean.MSG createFromSmsMessage(android.telephony.SmsMessage) -> a
     void <init>() -> <init>
@@ -420,41 +517,102 @@ me.gitai.smscodehelper.bean.MSG -> me.gitai.smscodehelper.a.a:
     void setCode(java.lang.String) -> d
     boolean equals(java.lang.Object) -> equals
     int hashCode() -> hashCode
+    java.lang.String toString() -> toString
+me.gitai.smscodehelper.bundle.BundleScrubber -> me.gitai.smscodehelper.b.a:
+    boolean scrub(android.content.Intent) -> a
+    boolean scrub(android.os.Bundle) -> a
+me.gitai.smscodehelper.bundle.PluginBundleManager -> me.gitai.smscodehelper.b.b:
+    boolean isBundleValid(android.os.Bundle) -> a
+    android.os.Bundle generateSMSBundle(android.content.Context,java.lang.String,java.lang.String) -> a
 me.gitai.smscodehelper.receiver.CopyReceiver -> me.gitai.smscodehelper.receiver.CopyReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
+me.gitai.smscodehelper.receiver.QueryReceiver -> me.gitai.smscodehelper.receiver.QueryReceiver:
+    android.content.Intent INTENT_REQUEST_REQUERY -> a
+    void <init>() -> <init>
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void <clinit>() -> <clinit>
 me.gitai.smscodehelper.receiver.SMSBroadcastReceiver -> me.gitai.smscodehelper.receiver.SMSBroadcastReceiver:
     android.content.SharedPreferences sharedPreferences -> a
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    void parse(android.content.Context,me.gitai.smscodehelper.bean.MSG) -> a
+    boolean parse(android.content.Context,me.gitai.smscodehelper.bean.MSG) -> a
     void notification(android.content.Context,me.gitai.smscodehelper.bean.MSG) -> b
 me.gitai.smscodehelper.receiver.SecretCodeReceiver -> me.gitai.smscodehelper.receiver.SecretCodeReceiver:
     void <init>() -> <init>
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-me.gitai.smscodehelper.utils.Captchas -> me.gitai.smscodehelper.b.a:
+me.gitai.smscodehelper.ui.AbstractPluginActivity -> me.gitai.smscodehelper.ui.a:
+    boolean mIsCancelled -> a
+    void <init>() -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void setupTitleApi11() -> b
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    void setupActionBarApi11() -> c
+    void setupActionBarApi14() -> d
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
+    boolean isCanceled() -> a
+me.gitai.smscodehelper.ui.MainPreferences -> me.gitai.smscodehelper.ui.MainPreferences:
+    void <init>() -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void onDestroy() -> onDestroy
+    void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+    void setFitsSystemWindows(boolean) -> a
+    void setTranslucentStatus(boolean) -> b
+    void getPermission(java.lang.String) -> a
+me.gitai.smscodehelper.ui.MainPreferences$1 -> me.gitai.smscodehelper.ui.b:
+    me.gitai.smscodehelper.ui.MainPreferences this$0 -> a
+    void <init>(me.gitai.smscodehelper.ui.MainPreferences) -> <init>
+    boolean onClick(android.view.View,android.view.View) -> a
+me.gitai.smscodehelper.ui.MainPreferences$2 -> me.gitai.smscodehelper.ui.c:
+    android.app.Activity val$_this -> a
+    java.lang.String val$permission -> b
+    me.gitai.smscodehelper.ui.MainPreferences this$0 -> c
+    void <init>(me.gitai.smscodehelper.ui.MainPreferences,android.app.Activity,java.lang.String) -> <init>
+    boolean onClick(android.view.View,android.view.View) -> a
+me.gitai.smscodehelper.ui.TaskerActivity -> me.gitai.smscodehelper.ui.TaskerActivity:
+    void <init>() -> <init>
+    void onCreate(android.os.Bundle) -> onCreate
+    void finish() -> finish
+    java.lang.String generateBlurb(android.content.Context,java.lang.String) -> a
+me.gitai.smscodehelper.utils.Captchas -> me.gitai.smscodehelper.c.a:
     java.lang.String keywords -> a
     java.lang.String ambiguities -> b
-    me.gitai.smscodehelper.bean.MSG msg -> c
-    void <init>(me.gitai.smscodehelper.bean.MSG,int) -> <init>
+    android.content.Context mContext -> c
+    me.gitai.smscodehelper.bean.MSG msg -> d
+    void <init>(android.content.Context,me.gitai.smscodehelper.bean.MSG,int) -> <init>
     void init() -> b
     me.gitai.smscodehelper.bean.MSG parseAuto() -> a
     void <clinit>() -> <clinit>
-me.gitai.smscodehelper.utils.CommonUtil -> me.gitai.smscodehelper.b.b:
+me.gitai.smscodehelper.utils.CommonUtil -> me.gitai.smscodehelper.c.b:
+    boolean isKkOrLater -> a
+    boolean isLpOrLater -> b
+    boolean isMmOrLater -> c
     void hideLauncher(android.app.Activity,boolean) -> a
     void hideLauncher(android.content.Context,android.content.ComponentName,boolean) -> a
+    void <clinit>() -> <clinit>
+me.gitai.smscodehelper.utils.TaskerPlugin -> me.gitai.smscodehelper.c.c:
+    java.util.regex.Pattern VARIABLE_NAME_MATCH_PATTERN -> a
+    int[] lastRandomsSeen -> b
+    int randomInsertPointer -> c
+    java.security.SecureRandom sr -> d
+    int getPositiveNonRepeatingRandomInteger() -> a
+    void <clinit>() -> <clinit>
+me.gitai.smscodehelper.utils.TaskerPlugin$Event -> me.gitai.smscodehelper.c.d:
+    int addPassThroughMessageID(android.content.Intent) -> a
+    android.os.Bundle retrieveOrCreatePassThroughBundle(android.content.Intent) -> b
 me.gitai.smscodehelper.widget.EditPreference -> me.gitai.smscodehelper.widget.EditPreference:
     me.gitai.library.widget.MaterialDialog licenseDialog -> a
-    android.content.Context ctx -> b
-    java.lang.String def_hint -> c
-    java.lang.String def_text -> d
-    android.widget.EditText editText -> e
+    java.lang.String def_hint -> b
+    java.lang.String def_text -> c
+    android.widget.EditText editText -> d
     void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     void <init>(android.content.Context) -> <init>
-    void initTypedArray(android.util.AttributeSet) -> a
+    void init(android.content.Context,android.util.AttributeSet) -> a
     void init(android.content.Context) -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    android.widget.EditText access$000(me.gitai.smscodehelper.widget.EditPreference) -> a
+    android.widget.EditText access$002(me.gitai.smscodehelper.widget.EditPreference,android.widget.EditText) -> a
 me.gitai.smscodehelper.widget.EditPreference$1 -> me.gitai.smscodehelper.widget.a:
     me.gitai.smscodehelper.widget.EditPreference this$0 -> a
     void <init>(me.gitai.smscodehelper.widget.EditPreference) -> <init>
@@ -473,9 +631,11 @@ me.gitai.smscodehelper.widget.GuessPreference -> me.gitai.smscodehelper.widget.G
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
 me.gitai.smscodehelper.widget.LicensePreference -> me.gitai.smscodehelper.widget.LicensePreference:
     me.gitai.library.widget.MaterialDialog licenseDialog -> a
+    java.lang.String def_msg -> b
     void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     void <init>(android.content.Context) -> <init>
+    void init(android.content.Context,android.util.AttributeSet) -> a
     void init(android.content.Context) -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
 me.gitai.smscodehelper.widget.TestPreference -> me.gitai.smscodehelper.widget.TestPreference:
@@ -498,7 +658,22 @@ me.gitai.smscodehelper.widget.TestPreference$2 -> me.gitai.smscodehelper.widget.
     void <init>(me.gitai.smscodehelper.widget.TestPreference) -> <init>
     boolean onInflate(android.view.View) -> a
 me.gitai.smscodehelper.widget.VersionPreference -> me.gitai.smscodehelper.widget.VersionPreference:
+    me.gitai.library.widget.MaterialDialog versionDialog -> a
+    me.gitai.library.utils.ParseAboutXml$About about -> b
     void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     void <init>(android.content.Context) -> <init>
-    void init() -> a
+    void init(android.content.Context,android.util.AttributeSet) -> a
+    void init(android.content.Context) -> a
+    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    void setText(android.view.View,int,java.lang.String) -> a
+    void setText(android.view.View,int,android.text.Spanned) -> a
+    void setText(android.widget.TextView,android.text.Spanned) -> a
+    me.gitai.library.utils.ParseAboutXml$About access$000(me.gitai.smscodehelper.widget.VersionPreference) -> a
+    void access$100(me.gitai.smscodehelper.widget.VersionPreference,android.view.View,int,java.lang.String) -> a
+    void access$200(me.gitai.smscodehelper.widget.VersionPreference,android.view.View,int,android.text.Spanned) -> a
+me.gitai.smscodehelper.widget.VersionPreference$1 -> me.gitai.smscodehelper.widget.e:
+    android.content.Context val$ctx -> a
+    me.gitai.smscodehelper.widget.VersionPreference this$0 -> b
+    void <init>(me.gitai.smscodehelper.widget.VersionPreference,android.content.Context) -> <init>
+    boolean onInflate(android.view.View) -> a

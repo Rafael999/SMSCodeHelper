@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="me.gitai.smscodehelper">
 
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
@@ -13,7 +14,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         android:supportsRtl="true">
-        <activity android:name=".MainPreferences"
+        <!-- <meta-data android:name="xposedmodule" android:value="true"/>
+        <meta-data android:name="xposedminversion" android:value="54"/>
+        <meta-data android:name="xposeddescription" android:value="@string/intercept_xposed_summary"/> -->
+        <activity android:name=".ui.MainPreferences"
             android:label="@string/title"
             android:excludeFromRecents="false">
             <intent-filter>
@@ -26,6 +30,22 @@
                 <data android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.TaskerActivity"
+            android:exported="true"
+            android:icon="@drawable/ic_notify"
+            android:label="@string/plugin_name"
+            tools:ignore="ExportedActivity" >
+
+            <!-- this Intent filter allows the plug-in to be discovered by Locale -->
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="net.dinglisch.android.tasker.ACTION_EDIT_EVENT" />
+            </intent-filter>
+
+        </activity>
         <receiver android:name=".receiver.SecretCodeReceiver">
             <intent-filter>
                 <action android:name = "android.provider.Telephony.SECRET_CODE"/>
@@ -34,10 +54,33 @@
                     android:scheme="android_secret_code"/>
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.SMSBroadcastReceiver">
+        <receiver android:name=".receiver.SMSBroadcastReceiver"
+            android:exported="true"
+            android:process=":background"
+            tools:ignore="ExportedReceiver">
             <intent-filter android:priority="2147483647">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="me.gitai.smscodehelper.action.PARSE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+            </intent-filter>
+
+        </receiver>
+        <receiver android:name=".receiver.QueryReceiver"
+            android:exported="true"
+            android:process=":background"
+            tools:ignore="ExportedReceiver">
+
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.QUERY_CONDITION" />
+            </intent-filter>
+
         </receiver>
         <receiver android:name=".receiver.CopyReceiver">
             <intent-filter>

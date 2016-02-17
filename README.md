@@ -12,7 +12,19 @@ Captchas Tool
 
 ![](./Screener/20151225191021.png)
 
+## TODO
+- [ ] 部分支付通知金额抽取
+- [ ] 更加完善的 `tasker` 插件支持
+
 ## 更新记录(ChangeLog)
+
+### [v0.0.7](./apk/me.gitai.smscodehelper-release-c8-v0.0.7.apk)
+* 增加 `tasker` 插件支持
+* 修改了一些细节
+* 修复 Android M 重复请求权限问题
+* 修复解析出乱七八糟东西的问题
+* 新的关于页面
+
 ### [v0.0.6](./apk/me.gitai.smscodehelper-release-c7-v0.0.6.apk)
 * 修复通知图标
 * 增加测试功能
@@ -110,3 +122,4 @@ GPLv3+
 ## Libraries
 
 - [systembartint](https://github.com/jgilfelt/SystemBarTint)
+- [kitkat-sms-patch](https://github.com/CzBiX/kitkat-sms-patch)

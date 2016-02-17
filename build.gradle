@@ -36,16 +36,16 @@ subprojects {
                         aliasPassword: System.getenv("KEY_PASSWORD")
                 ],
 
-                versionCode : 7,
-                versionName : "0.0.6"
+                versionCode : 8,
+                versionName : "0.0.7"
         ]
 
         versions = [
-            androidSupport : "23.0.1",
+            androidSupport : "23.1.1",
             junit:"4.1.2",
             robolectric:"3.0-rc3",
-            espresso:"2.2",
-            runner:"0.2",
+            espresso:"2.2.1",
+            runner:"0.4.1",
             fastjson:"1.2.7"
         ]
     }

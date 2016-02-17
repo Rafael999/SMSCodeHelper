@@ -4,4 +4,11 @@
         <attr name="hint" format="string" localization="suggested"/>
         <attr name="text" format="string" localization="suggested"/>
     </declare-styleable>
+    <declare-styleable name="version">
+        <attr name="appid" format="string" localization="suggested"/>
+        <attr name="type" format="string" localization="suggested"/>
+        <attr name="name" format="string" localization="suggested"/>
+        <attr name="code" format="string" localization="suggested"/>
+        <attr name="logs" format="enum" localization="suggested"/>
+    </declare-styleable>
 </resources>
