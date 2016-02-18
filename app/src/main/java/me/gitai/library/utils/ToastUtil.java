@@ -74,8 +74,20 @@ public class ToastUtil
     show(String.format(getContext().getString(id),strs));
   }
 
+  public static void show(String header, Exception ex){
+    show(header, ex.getLocalizedMessage());
+  }
+
   public static void show(Exception ex){
     show(ex.getLocalizedMessage());
+  }
+
+  public static void show(String header, Throwable th){
+    show(header, th.getLocalizedMessage());
+  }
+
+  public static void show(Throwable th){
+    show(th.getLocalizedMessage());
   }
 
 

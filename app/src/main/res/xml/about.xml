@@ -7,73 +7,96 @@
     <license href="http://gitai.me">GPLv3+</license>
     <rep type="git" href="https://github.com/jashkenas/coffeescript.git">coffeescript@jashkenas</rep>
     <homes>
-        <home href="http://gitai.me">SmsCodeHelper@Blog</home>
-        <home href="https://github.com/gitaiQAQ/SmsCodeHelper">SmsCodeHelper@gitaiQAQ</home>
+        <home href="http://gitai.me/%E5%BA%94%E7%94%A8/android/2015/2015/12/13/me.gitai.smscodehelper">Website</home>
+        <home href="https://github.com/gitaiQAQ/SmsCodeHelper">Github</home>
     </homes>
     <bugs>
-        <bug href="https://github.com/jashkenas/coffeescript/issues">issues@github</bug>
+        <bug href="https://github.com/gitaiQAQ/SmsCodeHelper/issues">Issues</bug>
     </bugs>
     <devers>
         <dever href="https://github.com/RikkaW">RikkaW</dever>
         <dever email="i@gitai.me" href="https://github.com/gitaiQAQ">Gitai</dever>
     </devers>
     <deps>
-        <dep
-            title="systembartint"
-            href="https://github.com/jgilfelt/SystemBarTint"
-            name="1"
-            code="1"
-            type="jar">
+        <dep title="systembartint" href="https://github.com/jgilfelt/SystemBarTint" name="SystemBarTint@Github" ver="1.0" code="1" type="jar">
+Copyright 2013 readyState Software Limited
 
-        </dep>
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</dep>
+        <dep title="KitKat SMS Patch" href="https://github.com/CzBiX/kitkat-sms-patch" name="KitKat-SMS-Patch@Github" ver="1.6" code="8" type="lib">
+Copyright 2015 CzBiX Software Limited
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</dep>
     </deps>
     <clogs>
-        <clog name="v0.0.7" code="8" type="md"><![CDATA[
-            * 增加 `tasker` 插件支持
-            * 修改了一些细节
-            * 修复 Android M 重复请求权限问题
-            * 修复解析出乱七八糟东西的问题
+    	<clog name="v0.0.8" code="10" type="html"><![CDATA[
+            * 修改了一些细节<br>
+            * 又改了关于页面<br>
+            * 调整优先级，防止通知被覆盖<br>
+            * 修复前版本的拨号盘无法启动问题<br>
+            * 增加更人性化的日志
+        ]]></clog>
+        <clog name="v0.0.7" code="8" type="html"><![CDATA[
+            * 增加 <code>tasker</code> 插件支持<br>
+            * 修改了一些细节<br>
+            * 修复 <code>Android M</code> 重复请求权限问题<br>
+            * 修复解析出乱七八糟东西的问题<br>
             * 新的关于页面
         ]]></clog>
-        <clog name="v0.0.6" code="7" type="md"><![CDATA[
-            * 修复通知图标
-            * 增加测试功能
-            * 增加部分解析解析
-            * 去除Google验证码`G-`
+        <clog name="v0.0.6" code="7" type="html"><![CDATA[
+            * 修复通知图标<br>
+            * 增加测试功能<br>
+            * 增加部分解析解析<br>
+            * 去除Google验证码 <code>G-</code>
         ]]></clog>
-        <clog name="v0.0.5" code="5" type="md"><![CDATA[
-            * 优化整合解析器
-            * 更少配置项
-                - 去除自定义触发关键词
-                - 去除自定义来源及解析正则
-            * 修复透明状态栏及阴影重叠问题
+        <clog name="v0.0.5" code="5" type="html"><![CDATA[
+            * 优化整合解析器<br>
+            * 更少配置项<br>
+            &nbsp;&nbsp;- 去除自定义触发关键词<br>
+            &nbsp;&nbsp;- 去除自定义来源及解析正则<br>
+            * 修复透明状态栏及阴影重叠问题<br>
             * 增加测试用例 100+
         ]]></clog>
-        <clog name="v0.0.4" code="4" type="md"><![CDATA[
-            * 增加简述(即说明)
-            * 增加配置项
-                - 自定义触发关键词
-                - 自定义来源及解析正则
-            * 反推服务商
-            * 拨号盘暗码: `*#*#767#*#*`  (SMS)
+        <clog name="v0.0.4" code="4" type="html"><![CDATA[
+            * 增加简述(即说明)<br>
+            * 增加配置项<br>
+            &nbsp;&nbsp;- 自定义触发关键词<br>
+            &nbsp;&nbsp;- 自定义来源及解析正则<br>
+            * 反推服务商<br>
+            * 拨号盘暗码: <code>*#*#767#*#*</code>  (SMS)<br>
             * 增加原生5.0以上Overview Screen卡片颜色
         ]]></clog>
-        <clog name="v0.0.3" code="3" type="md"><![CDATA[
-            * 增加配置项
-                - 启用/暂停服务
-                - 自动复制到剪贴板
-            * 检测剪贴板是否为空
-                - 更科学的显示通知
-            * 点击显示短信内容
-            * 点击内容自动复制
-            * 视图中显示来源/校验码/服务商等内容
+        <clog name="v0.0.3" code="3" type="html"><![CDATA[
+            * 增加配置项<br>
+            &nbsp;&nbsp;- 启用/暂停服务<br>
+            &nbsp;&nbsp;- 自动复制到剪贴板<br>
+            * 检测剪贴板是否为空<br>
+            &nbsp;&nbsp;- 更科学的显示通知<br>
+            * 点击显示短信内容<br>
+            * 点击内容自动复制<br>
+            * 视图中显示来源/校验码/服务商等内容<br>
             * 新通知栏图标
         ]]></clog>
-        <clog name="v0.0.2" code="2" type="md"><![CDATA[
-            * 新图标 @萌萌的小雅酱
-        ]]></clog>
-        <clog name="v0.0.1" code="1" type="html"><![CDATA[
-            * 增加 <code>魔趣 OS</code> 验证码解析 <a href="http://opengrok.mokeedev.com/mkl-mr1/xref/external/mokee/MoKeeSDKs/libMoKeeCloud/libMoKeeCloud.jar"><code>SDK</code></a>
-            ]]></clog>
+        <clog name="v0.0.2" code="2" type="html"><![CDATA[* 新图标 <a href="http://www.coolapk.com/u/436688">@萌萌的小雅酱</a>]]></clog>
+        <clog name="v0.0.1" code="1" type="html"><![CDATA[* 增加 <code>魔趣 OS</code> 验证码解析 <a href="http://opengrok.mokeedev.com/mkl-mr1/xref/external/mokee/MoKeeSDKs/libMoKeeCloud/libMoKeeCloud.jar"><code>SDK</code></a>]]></clog>
     </clogs>
 </about>

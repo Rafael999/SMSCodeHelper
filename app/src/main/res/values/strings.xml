@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Captchas Tools</string>
     <string name="title">Captchas Tools</string>
+    <string name="log">Log</string>
+    <string name="clear" translatable="false">clear</string>
+    <string name="bullet" translatable="false">&#9679;\t</string>
 
     <!-- General -->
 
@@ -34,6 +37,7 @@
         <string name="prefs_guess_summary">Get provider from Message, and save</string>
 
         <string name="prefs_test">Test</string>
+        <string name="prefs_test_text" translatable="false">您的验证码是233333，在5分钟内有效。如非本人操作请忽略本短信。【QAQ】</string>
 
     <string name="prefs_cats_parse">Parse</string>
         <string name="prefs_parse_keywords">Keywords</string>
@@ -73,6 +77,5 @@
 
     <!-- Xposed -->
     <string name="intercept_xposed_summary" translatable="false">Allow SMS Blocker, via kitkat-sms-patch</string>
-    <string name="log">Log</string>
 </resources>
 

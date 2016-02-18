@@ -17,11 +17,12 @@ import android.view.WindowManager;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import me.gitai.library.utils.L;
+import me.gitai.library.utils.PackageUtils;
 import me.gitai.library.utils.SharedPreferencesUtil;
 import me.gitai.library.widget.MaterialDialog;
 import me.gitai.smscodehelper.Constant;
 import me.gitai.smscodehelper.R;
-import me.gitai.smscodehelper.utils.CommonUtil;
 import me.gitai.smscodehelper.widget.TestPreference;
 
 
@@ -33,8 +34,11 @@ public class MainPreferences extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        L.d();
 
         addPreferencesFromResource(R.xml.preferences);
+
+        getListView().setPadding(0,0,0,0);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
             setFitsSystemWindows(true);
@@ -60,8 +64,12 @@ public class MainPreferences extends PreferenceActivity {
 
     @Override
     protected void onDestroy() {
-        CommonUtil.hideLauncher(this,
-                SharedPreferencesUtil.getInstence(null).getBoolean(Constant.KEY_GENERAL_HIDDEN_ICON, false));
+        L.d();
+        if (SharedPreferencesUtil.getInstence(null).getBoolean(Constant.KEY_GENERAL_HIDDEN_ICON, false)){
+            PackageUtils.disableComponent(this, MainPreferences.class);
+        }else {
+            PackageUtils.enableComponent(this, MainPreferences.class);
+        }
         super.onDestroy();
     }
 

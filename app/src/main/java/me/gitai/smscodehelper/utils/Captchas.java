@@ -64,7 +64,7 @@ public class Captchas {
                     .replaceAll("码(是|为)?(：|:)?", "码是")
                     .replaceAll("是|为", " 是 ");
 
-            Matcher m = Pattern.compile("&?([\\u4e00-\\u9fa5]+|[A-Za-z0-9]{4,10})&?").matcher(body);
+            Matcher m = Pattern.compile("&.+&|[\\u4e00-\\u9fa5]+|[A-Za-z0-9]+").matcher(body);
             body = "";
             while(m.find()){
                 body = body + " " + m.group();

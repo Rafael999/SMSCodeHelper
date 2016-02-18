@@ -18,6 +18,13 @@ Captchas Tool
 
 ## 更新记录(ChangeLog)
 
+### [v0.0.8](./apk/me.gitai.smscodehelper-release-c10-v0.0.8.apk)
+* 修改了一些细节
+* 又改了关于页面
+* 调整优先级，防止通知被覆盖
+* 修复前版本的拨号盘无法启动问题
+* 增加更人性化的日志
+
 ### [v0.0.7](./apk/me.gitai.smscodehelper-release-c8-v0.0.7.apk)
 * 增加 `tasker` 插件支持
 * 修改了一些细节

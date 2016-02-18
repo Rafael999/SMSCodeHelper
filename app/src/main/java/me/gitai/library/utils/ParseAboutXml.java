@@ -47,9 +47,11 @@ public class ParseAboutXml {
     private static final String ATTR_TITLE          = "title";
     private static final String ATTR_HREF           = "href";
     private static final String ATTR_NAME           = "name";
+    private static final String ATTR_VERSION        = "ver";
     private static final String ATTR_CODE           = "code";
     private static final String ATTR_TYPE           = "type";
     private static final String ATTR_PATH           = "path";
+    private static final String ATTR_ALIGN           = "align";
     private static final String ATTR_EMAIL          = "email";
 
     private static String currTag;
@@ -156,9 +158,11 @@ public class ParseAboutXml {
                                 .add(new Dependencie(attrs.get(ATTR_NAME),
                                         attrs.get(ATTR_HREF),
                                         attrs.get(ATTR_TITLE),
+                                        attrs.get(ATTR_VERSION),
                                         attrs.get(ATTR_CODE),
                                         attrs.get(ATTR_TYPE),
                                         attrs.get(ATTR_PATH),
+                                        attrs.get(ATTR_ALIGN),
                                         new License(
                                                 text,
                                                 attrs.get(ATTR_TYPE))));
@@ -402,6 +406,10 @@ public class ParseAboutXml {
         public static boolean isEmpty(Url url){
             return url == null || (url.href == null && url.name == null);
         }
+
+        public String genHtml(){
+            return String.format("<a href=\"%s\">%s</a>", getHref(), getName());
+        }
     }
 
     public static class Repository extends Url{
@@ -458,19 +466,23 @@ public class ParseAboutXml {
     }
 
     public static class Dependencie extends Url{
+        private String align;
         private String title;
+        private String ver;
         private String code;
         private String type;
         private String path;
         private License license;
 
-        public Dependencie(String name, String href, String title, String code, String type, String path, License license) {
+        public Dependencie(String name, String href, String title, String ver, String code, String type, String path, String align, License license) {
             super(name, href);
             this.title = title;
+            this.ver = ver;
             this.code = code;
             this.type = type;
             this.path = path;
             this.license = license;
+            this.align = align;
         }
 
         public String getTitle() {
@@ -479,6 +491,14 @@ public class ParseAboutXml {
 
         public void setTitle(String title) {
             this.title = title;
+        }
+
+        public String getVer() {
+            return ver;
+        }
+
+        public void setVer(String ver) {
+            this.ver = ver;
         }
 
         public String getCode() {
@@ -511,6 +531,14 @@ public class ParseAboutXml {
 
         public void setLicense(License license) {
             this.license = license;
+        }
+
+        public String getAlign() {
+            return align!=null?align:"left";
+        }
+
+        public void setAlign(String align) {
+            this.align = align;
         }
     }
 

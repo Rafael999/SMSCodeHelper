@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:preference="http://schemas.android.com/apk/res-auto"
-    xmlns:version="http://schemas.android.com/apk/res-auto"
     android:persistent="true">
     <PreferenceCategory android:title="@string/prefs_cats_general">
         <SwitchPreference android:key="general_enable"
@@ -17,7 +16,8 @@
             android:title="@string/prefs_guess"
             android:summary="@string/prefs_guess_summary"/>
         <me.gitai.smscodehelper.widget.TestPreference android:key="general_test"
-            android:title="@string/prefs_test"/>
+            android:title="@string/prefs_test"
+            preference:text="@string/prefs_test_text"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/prefs_cats_parse">
         <me.gitai.smscodehelper.widget.EditPreference
@@ -82,10 +82,6 @@
                 android:data="http://gitai.me/donate">
             </intent>
         </Preference>
-        <me.gitai.smscodehelper.widget.LicensePreference
-            android:key="about_open_source_license"
-            android:title="@string/prefs_app_license"
-            preference:text="@string/prefs_app_license_content"/>
         <me.gitai.smscodehelper.widget.VersionPreference
             android:key="about_version"
             android:title="@string/prefs_app_version"/>

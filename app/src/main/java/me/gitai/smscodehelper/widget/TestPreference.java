@@ -16,7 +16,7 @@ import me.gitai.smscodehelper.receiver.SMSBroadcastReceiver;
 /**
  * Created by gitai on 16-01-28.
  */
-public class TestPreference extends Preference implements Preference.OnPreferenceClickListener {
+public class TestPreference extends EditPreference implements Preference.OnPreferenceClickListener {
     protected MaterialDialog licenseDialog;
     protected Context ctx;
     protected int title;
@@ -37,15 +37,18 @@ public class TestPreference extends Preference implements Preference.OnPreferenc
         init(context);
     }
 
-    private void init(Context context){
+    @Override
+    protected void init(Context context){
         ctx = context;
         licenseDialog = new MaterialDialog(context)
                 .setTitle(getTitle())
+                .setCanceledOnTouchOutside(true)
                 .setContentView(R.layout.layout_test, new MaterialDialog.OnViewInflateListener() {
                     @Override
                     public boolean onInflate(View v) {
                         et_address = (EditText)v.findViewById(R.id.address);
                         et_body = (EditText)v.findViewById(R.id.body);
+                        et_body.setText(def_text);
                         return false;
                     }
                 })

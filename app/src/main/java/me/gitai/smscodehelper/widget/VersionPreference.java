@@ -2,9 +2,12 @@ package me.gitai.smscodehelper.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.preference.Preference;
+import android.text.Html;
 import android.text.Spanned;
 import android.text.SpannedString;
+import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,7 +83,17 @@ public class VersionPreference extends Preference implements Preference.OnPrefer
                                         String.valueOf(
                                                 BuildConfig.VERSION_CODE))));
 
-                        setText(v, R.id.des, about.getDescription());
+                        String homes = null;
+                        for(ParseAboutXml.Url url:about.getHome()){
+                            if (!StringUtils.isEmpty(homes)){
+                                homes = homes + " | "  + url.genHtml();
+                            }else{
+                                homes =  "<div>" + url.genHtml();
+                            }
+                        }
+                        homes = homes + "</div>";
+
+                        setText(v, R.id.des, Html.fromHtml(about.getDescription() + homes));
 
                         LinearLayout root = ((LinearLayout)v.findViewById(R.id.root));
                         for(ParseAboutXml.ChangeLog log: about.getChangelogs()){
@@ -88,19 +101,35 @@ public class VersionPreference extends Preference implements Preference.OnPrefer
 
                             setText(view, R.id.title, log.getName());
                             setText(view, R.id.version, String.valueOf(log.getCode()));
-                            setText(view, R.id.license, log.getContent());
+                            setText(view, R.id.content, log.getContent());
 
                             root.addView(view);
                         }
-                        /*for(ParseAboutXml.Dependencie dep: about.getDependencies()){
+                        for(ParseAboutXml.Dependencie dep: about.getDependencies()){
                             View view = LayoutInflater.from(ctx).inflate(R.layout.item_log, null);
 
-                            setText(view, R.id.title, dep.getTitle());
-                            setText(view, R.id.version, dep.getName());
-                            setText(view, R.id.license, dep.getLicense().toSpanned());
+                            setText(view, R.id.title, ctx.getString(R.string.bullet) + dep.getTitle());
+                            setText(view, R.id.version, dep.getVer());
+                            setText(view, R.id.content, Html.fromHtml(dep.getLicense().toString() + "<br><br>" + dep.genHtml()));
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+                                TextView content = ((TextView)view.findViewById(R.id.content));
+                                switch (dep.getAlign()){
+                                    case "center":
+                                        content.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                                        break;
+                                    case "right":
+                                        content.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+                                        break;
+                                    default:
+                                        content.setTextAlignment(View.TEXT_ALIGNMENT_INHERIT);
+                                        break;
+
+                                }
+                            }
 
                             root.addView(view);
-                        }*/
+                        }
 
                         return false;
                     }
@@ -144,5 +173,6 @@ public class VersionPreference extends Preference implements Preference.OnPrefer
         }else{
             v.setText(text);
         }
+        v.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

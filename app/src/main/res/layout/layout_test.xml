@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/address"
         android:hint="Originating Address"
-        android:text="110"
+        android:text="2333"
         android:allowUndo="true"
         android:singleLine="true" />
 

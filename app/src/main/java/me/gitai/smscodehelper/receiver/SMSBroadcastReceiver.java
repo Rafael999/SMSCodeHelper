@@ -155,7 +155,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
             L.d("Uninterceptable");
         }
 
-        if (!StringUtils.isEmpty(msg.getSender()) && msg.getAddress() != "110"){
+        if (!StringUtils.isEmpty(msg.getSender()) && !("2333".equals(msg.getAddress()))){
             L.d("Sender is " + msg.getSender());
             String provider = String.format("%s(%s)", msg.getSender(), msg.getAddress());
             Set<String> providers = sharedPreferences.getStringSet(Constant.KEY_GENERAL_GUESS, new HashSet<String>());
@@ -196,11 +196,10 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
                         .setStyle(textStyle);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
-            builder.setPriority(Notification.PRIORITY_HIGH);
+            builder.setPriority(Notification.PRIORITY_MAX);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            builder.setPriority(Notification.PRIORITY_HIGH);
             builder.setCategory(Notification.CATEGORY_ALARM);
         }
 
@@ -208,6 +207,5 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
                 (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(randomId, builder.build());
     }
-
 
 }

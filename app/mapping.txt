@@ -286,7 +286,88 @@ com.twofortyfouram.locale.api.R$string -> b.b.a.a.b:
     int twofortyfouram_locale_menu_dontsave -> twofortyfouram_locale_menu_dontsave
     int twofortyfouram_locale_menu_help -> twofortyfouram_locale_menu_help
     int twofortyfouram_locale_menu_save -> twofortyfouram_locale_menu_save
-me.gitai.library.utils.L -> me.gitai.a.a.a:
+me.gitai.library.Charsets -> me.gitai.a.a:
+    java.nio.charset.Charset ISO_8859_1 -> a
+    java.nio.charset.Charset US_ASCII -> b
+    java.nio.charset.Charset UTF_16 -> c
+    java.nio.charset.Charset UTF_16BE -> d
+    java.nio.charset.Charset UTF_16LE -> e
+    java.nio.charset.Charset UTF_8 -> f
+    java.nio.charset.Charset toCharset(java.nio.charset.Charset) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.AndroidUtils -> me.gitai.a.a.a:
+    java.util.regex.Pattern SAFE_FILENAME_PATTERN -> i
+    boolean isIceCreamSandwichOrLater -> a
+    boolean isPreIceCreamSandwich -> b
+    boolean isJellyBeanOrLater -> c
+    boolean isKitkatOrLater -> d
+    boolean isPreLollipop -> e
+    boolean isLollipopOrLater -> f
+    boolean isPreMarshmallow -> g
+    boolean isMarshmallowOrLater -> h
+    android.net.Uri GSF_URI -> j
+    java.lang.String UNKNOWN -> k
+    android.content.Intent getBatteryStatus(android.content.Context) -> a
+    java.lang.String getBatteryInfo(android.content.Intent) -> a
+    android.content.pm.Signature getPackageSignature(android.content.Context) -> c
+    java.lang.String getSignatureInfo(android.content.Context) -> b
+    java.lang.String getSDKIntStr(int) -> a
+    java.lang.String getLocale(java.util.Locale) -> a
+    java.lang.String getVMType(java.lang.String) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.CrashUtil -> me.gitai.a.a.b:
+    me.gitai.library.utils.CrashUtil mCrashUtil -> a
+    android.content.Context mContext -> b
+    me.gitai.library.utils.CrashUtil$OnCrash mOnCrash -> c
+    java.lang.Thread$UncaughtExceptionHandler mDefHandler -> d
+    void <init>() -> <init>
+    me.gitai.library.utils.CrashUtil getInstance() -> a
+    void init(android.content.Context,me.gitai.library.utils.CrashUtil$OnCrash) -> a
+    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    java.lang.String collectDeviceInfo(android.content.Context) -> a
+    void exit() -> b
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.CrashUtil$OnCrash -> me.gitai.a.a.c:
+    boolean onCrash(java.lang.Thread,java.lang.Throwable) -> a
+me.gitai.library.utils.CryptoUtils -> me.gitai.a.a.d:
+    java.lang.String TAG -> a
+    void <init>() -> <init>
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.CryptoUtils$HASH -> me.gitai.a.a.e:
+    char[] DIGITS_LOWER -> a
+    char[] DIGITS_UPPER -> b
+    java.lang.String md5(byte[]) -> a
+    byte[] md5Bytes(byte[]) -> b
+    java.lang.String sha1(byte[]) -> c
+    byte[] sha1Bytes(byte[]) -> d
+    java.security.MessageDigest getDigest(java.lang.String) -> a
+    char[] encodeHex(byte[]) -> e
+    char[] encodeHex(byte[],boolean) -> a
+    char[] encodeHex(byte[],char[]) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.CryptoUtils$HEX -> me.gitai.a.a.f:
+    char[] HEX_DIGITS -> a
+    char[] FIRST_CHAR -> b
+    char[] SECOND_CHAR -> c
+    byte[] DIGITS -> d
+    java.lang.String encodeHex(byte[],boolean) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.IOUtils -> me.gitai.a.a.g:
+    char DIR_SEPARATOR -> a
+    java.lang.String LINE_SEPARATOR -> b
+    java.math.BigInteger ONE_KB_BI -> c
+    java.math.BigInteger ONE_MB_BI -> d
+    java.math.BigInteger ONE_GB_BI -> e
+    java.math.BigInteger ONE_TB_BI -> f
+    java.math.BigInteger ONE_PB_BI -> g
+    java.math.BigInteger ONE_EB_BI -> h
+    java.math.BigInteger ONE_ZB -> i
+    java.math.BigInteger ONE_YB -> j
+    java.text.SimpleDateFormat DATE_TIME_FORMAT -> k
+    void writeString(java.lang.String,java.io.OutputStream) -> a
+    void writeString(java.lang.String,java.io.OutputStream,java.nio.charset.Charset) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.L -> me.gitai.a.a.h:
     java.lang.String TAG -> a
     boolean isToLogcat -> b
     boolean isToFile -> c
@@ -295,6 +376,7 @@ me.gitai.library.utils.L -> me.gitai.a.a.a:
     java.text.SimpleDateFormat DATE_TIME_FORMAT -> f
     void <init>() -> <init>
     void i(java.lang.String) -> a
+    void d() -> a
     void d(java.lang.String) -> b
     void e(java.lang.String) -> c
     void e(java.lang.Throwable) -> a
@@ -303,19 +385,26 @@ me.gitai.library.utils.L -> me.gitai.a.a.a:
     java.lang.String getTag(java.lang.StackTraceElement) -> a
     java.lang.String getCodeLocation(java.lang.StackTraceElement) -> b
     void setLogcatEnable(android.content.Context,boolean) -> a
-    boolean isLogcatEnabled() -> a
+    boolean isLogcatEnabled() -> b
     void setLogToFileEnable(boolean,android.content.Context) -> a
     void setLogToFileEnable(boolean,android.content.Context,java.lang.String) -> a
-    boolean isLogToFileEnabled() -> b
+    boolean isLogToFileEnabled() -> c
     void writeFile(java.lang.String,java.lang.String,java.lang.String) -> a
-    java.io.File getLogFile() -> c
+    java.io.File getLogFile() -> d
     java.io.File creatFileIfNotExists(java.io.File) -> a
     void <clinit>() -> <clinit>
-me.gitai.library.utils.ParseAboutXml -> me.gitai.a.a.b:
+me.gitai.library.utils.PackageUtils -> me.gitai.a.a.i:
+    java.lang.String TAG -> a
+    void <init>() -> <init>
+    void enableComponent(android.content.Context,java.lang.Class) -> a
+    void disableComponent(android.content.Context,java.lang.Class) -> b
+    void setComponentState(android.content.Context,java.lang.Class,boolean) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.ParseAboutXml -> me.gitai.a.a.j:
     java.lang.String currTag -> a
     me.gitai.library.utils.ParseAboutXml$About Parse(android.content.Context,int) -> a
     me.gitai.library.utils.ParseAboutXml$About Parse(android.content.res.XmlResourceParser) -> a
-me.gitai.library.utils.ParseAboutXml$About -> me.gitai.a.a.c:
+me.gitai.library.utils.ParseAboutXml$About -> me.gitai.a.a.k:
     java.lang.String name -> a
     java.lang.String icon -> b
     java.lang.String version -> c
@@ -345,10 +434,10 @@ me.gitai.library.utils.ParseAboutXml$About -> me.gitai.a.a.c:
     java.util.List getAuthors() -> d
     java.util.List getDependencies() -> e
     java.util.List getChangelogs() -> f
-me.gitai.library.utils.ParseAboutXml$Author -> me.gitai.a.a.d:
+me.gitai.library.utils.ParseAboutXml$Author -> me.gitai.a.a.l:
     java.lang.String email -> a
     void <init>(java.lang.String,java.lang.String,java.lang.String) -> <init>
-me.gitai.library.utils.ParseAboutXml$ChangeLog -> me.gitai.a.a.e:
+me.gitai.library.utils.ParseAboutXml$ChangeLog -> me.gitai.a.a.m:
     java.lang.String type -> a
     java.lang.String code -> b
     java.lang.String content -> c
@@ -356,46 +445,55 @@ me.gitai.library.utils.ParseAboutXml$ChangeLog -> me.gitai.a.a.e:
     java.lang.String getCode() -> a
     android.text.Spanned getContent() -> b
     android.text.Spanned toSpanned() -> c
-me.gitai.library.utils.ParseAboutXml$Dependencie -> me.gitai.a.a.f:
-    java.lang.String title -> a
-    java.lang.String code -> b
-    java.lang.String type -> c
-    java.lang.String path -> d
-    me.gitai.library.utils.ParseAboutXml$License license -> e
-    void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,me.gitai.library.utils.ParseAboutXml$License) -> <init>
-me.gitai.library.utils.ParseAboutXml$License -> me.gitai.a.a.g:
+me.gitai.library.utils.ParseAboutXml$Dependencie -> me.gitai.a.a.n:
+    java.lang.String align -> a
+    java.lang.String title -> b
+    java.lang.String ver -> c
+    java.lang.String code -> d
+    java.lang.String type -> e
+    java.lang.String path -> f
+    me.gitai.library.utils.ParseAboutXml$License license -> g
+    void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,me.gitai.library.utils.ParseAboutXml$License) -> <init>
+    java.lang.String getTitle() -> a
+    java.lang.String getVer() -> b
+    me.gitai.library.utils.ParseAboutXml$License getLicense() -> c
+    java.lang.String getAlign() -> d
+me.gitai.library.utils.ParseAboutXml$License -> me.gitai.a.a.o:
     int type -> a
     java.lang.String text -> b
     void <init>(java.lang.String,java.lang.String) -> <init>
     java.lang.String toString() -> toString
-me.gitai.library.utils.ParseAboutXml$Repository -> me.gitai.a.a.h:
+me.gitai.library.utils.ParseAboutXml$Repository -> me.gitai.a.a.p:
     int type -> a
     void <init>(java.lang.String,java.lang.String,java.lang.String) -> <init>
-me.gitai.library.utils.ParseAboutXml$Url -> me.gitai.a.a.i:
+me.gitai.library.utils.ParseAboutXml$Url -> me.gitai.a.a.q:
     java.lang.String href -> a
     java.lang.String name -> b
     void <init>(java.lang.String,java.lang.String) -> <init>
-    java.lang.String getName() -> d
-me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.j:
+    java.lang.String getHref() -> e
+    java.lang.String getName() -> f
+    java.lang.String genHtml() -> g
+me.gitai.library.utils.SharedPreferencesUtil -> me.gitai.a.a.r:
     android.content.Context ctx -> a
     void initialize(android.content.Context) -> a
     android.content.SharedPreferences getInstence(java.lang.String) -> a
     android.content.SharedPreferences$Editor getEditor(java.lang.String) -> b
-me.gitai.library.utils.StringUtils -> me.gitai.a.a.k:
+me.gitai.library.utils.StringUtils -> me.gitai.a.a.s:
     char[] HEX_DIGITS -> a
     boolean isEmpty(java.lang.CharSequence) -> a
+    boolean isEmpty(java.util.List) -> a
     boolean contains(java.lang.String[],java.lang.String) -> a
     java.lang.String toString(java.lang.Object[],java.lang.String) -> a
     java.lang.String toString(java.lang.Object[]) -> a
     boolean isEmpty(java.lang.Object[]) -> b
-    boolean isEmpty(java.util.Set) -> a
+    java.lang.String toSafeFileName(java.lang.String) -> a
     java.lang.String join(java.util.Collection,java.lang.String) -> a
-    boolean isChinese(java.lang.String) -> a
+    boolean isChinese(java.lang.String) -> b
     boolean test(java.lang.String,java.lang.String) -> a
     boolean test(java.lang.String,java.lang.String,int) -> a
     java.lang.String match(java.lang.String,java.lang.String) -> b
     void <clinit>() -> <clinit>
-me.gitai.library.utils.ToastUtil -> me.gitai.a.a.l:
+me.gitai.library.utils.ToastUtil -> me.gitai.a.a.t:
     android.app.Application sContext -> a
     void <init>() -> <init>
     void initialize(android.app.Application) -> a
@@ -403,7 +501,43 @@ me.gitai.library.utils.ToastUtil -> me.gitai.a.a.l:
     void show(int) -> a
     void show(java.lang.String,java.lang.String) -> a
     void showId(int,java.lang.Object[]) -> a
+    void show(java.lang.String,java.lang.Throwable) -> a
     void show(java.lang.String) -> a
+me.gitai.library.utils.adapter.BaseAdapterHelper -> me.gitai.a.a.a.a:
+    android.util.SparseArray views -> a
+    android.content.Context context -> b
+    int position -> c
+    android.view.View convertView -> d
+    void <init>(android.content.Context,android.view.ViewGroup,int,int) -> <init>
+    me.gitai.library.utils.adapter.BaseAdapterHelper get(android.content.Context,android.view.View,android.view.ViewGroup,int,int) -> a
+    me.gitai.library.utils.adapter.BaseAdapterHelper setText(int,java.lang.String) -> a
+    android.view.View getView() -> a
+    android.view.View retrieveView(int) -> a
+me.gitai.library.utils.adapter.BaseQuickAdapter -> me.gitai.a.a.a.b:
+    java.lang.String TAG -> a
+    android.content.Context context -> b
+    int layoutResId -> c
+    java.util.List data -> d
+    boolean displayIndeterminateProgress -> e
+    void <init>(android.content.Context,int) -> <init>
+    void <init>(android.content.Context,int,java.util.List) -> <init>
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    int getViewTypeCount() -> getViewTypeCount
+    int getItemViewType(int) -> getItemViewType
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    android.view.View createIndeterminateProgressView(android.view.View,android.view.ViewGroup) -> a
+    boolean isEnabled(int) -> isEnabled
+    void addAll(java.util.List) -> a
+    void remove(int) -> a
+    void clear() -> a
+    void convert(me.gitai.library.utils.adapter.BaseAdapterHelper,java.lang.Object) -> a
+    me.gitai.library.utils.adapter.BaseAdapterHelper getAdapterHelper(int,android.view.View,android.view.ViewGroup) -> a
+    void <clinit>() -> <clinit>
+me.gitai.library.utils.adapter.QuickAdapter -> me.gitai.a.a.a.c:
+    void <init>(android.content.Context,int) -> <init>
+    me.gitai.library.utils.adapter.BaseAdapterHelper getAdapterHelper(int,android.view.View,android.view.ViewGroup) -> a
 me.gitai.library.widget.MaterialDialog -> me.gitai.a.b.a:
     boolean mCancel -> a
     android.content.Context mContext -> b
@@ -425,6 +559,7 @@ me.gitai.library.widget.MaterialDialog -> me.gitai.a.b.a:
     void <init>(android.content.Context) -> <init>
     void show() -> a
     me.gitai.library.widget.MaterialDialog setContentView(int,me.gitai.library.widget.MaterialDialog$OnViewInflateListener) -> a
+    me.gitai.library.widget.MaterialDialog setContentView(android.view.View,me.gitai.library.widget.MaterialDialog$OnViewInflateListener) -> a
     me.gitai.library.widget.MaterialDialog setContentView(android.view.View) -> a
     void dismiss() -> b
     int dip2px(float) -> a
@@ -436,6 +571,7 @@ me.gitai.library.widget.MaterialDialog -> me.gitai.a.b.a:
     me.gitai.library.widget.MaterialDialog setPositiveButton(java.lang.String,me.gitai.library.widget.MaterialDialog$OnClickListener) -> a
     me.gitai.library.widget.MaterialDialog setNegativeButton(int,me.gitai.library.widget.MaterialDialog$OnClickListener) -> b
     me.gitai.library.widget.MaterialDialog setNegativeButton(java.lang.String,me.gitai.library.widget.MaterialDialog$OnClickListener) -> b
+    me.gitai.library.widget.MaterialDialog setCanceledOnTouchOutside(boolean) -> a
     android.view.View access$100(me.gitai.library.widget.MaterialDialog) -> a
     android.app.AlertDialog access$202(me.gitai.library.widget.MaterialDialog,android.app.AlertDialog) -> a
     android.content.Context access$300(me.gitai.library.widget.MaterialDialog) -> b
@@ -475,6 +611,7 @@ me.gitai.library.widget.MaterialDialog$Builder -> me.gitai.a.b.d:
     void setMessage(int) -> b
     void setMessage(java.lang.CharSequence) -> b
     void setContentView(android.view.View) -> a
+    void setCanceledOnTouchOutside(boolean) -> a
     void <init>(me.gitai.library.widget.MaterialDialog,me.gitai.library.widget.MaterialDialog$1) -> <init>
 me.gitai.library.widget.MaterialDialog$OnClickListener -> me.gitai.a.b.e:
     boolean onClick(android.view.View,android.view.View) -> a
@@ -495,7 +632,11 @@ me.gitai.smscodehelper.R$styleable -> me.gitai.smscodehelper.b:
 me.gitai.smscodehelper.SMSApp -> me.gitai.smscodehelper.SMSApp:
     void <init>() -> <init>
     void onCreate() -> onCreate
-    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    void restart() -> a
+me.gitai.smscodehelper.SMSApp$1 -> me.gitai.smscodehelper.c:
+    me.gitai.smscodehelper.SMSApp this$0 -> a
+    void <init>(me.gitai.smscodehelper.SMSApp) -> <init>
+    boolean onCrash(java.lang.Thread,java.lang.Throwable) -> a
 me.gitai.smscodehelper.bean.MSG -> me.gitai.smscodehelper.a.a:
     java.lang.String _id -> a
     java.lang.String address -> b
@@ -583,27 +724,20 @@ me.gitai.smscodehelper.utils.Captchas -> me.gitai.smscodehelper.c.a:
     void init() -> b
     me.gitai.smscodehelper.bean.MSG parseAuto() -> a
     void <clinit>() -> <clinit>
-me.gitai.smscodehelper.utils.CommonUtil -> me.gitai.smscodehelper.c.b:
-    boolean isKkOrLater -> a
-    boolean isLpOrLater -> b
-    boolean isMmOrLater -> c
-    void hideLauncher(android.app.Activity,boolean) -> a
-    void hideLauncher(android.content.Context,android.content.ComponentName,boolean) -> a
-    void <clinit>() -> <clinit>
-me.gitai.smscodehelper.utils.TaskerPlugin -> me.gitai.smscodehelper.c.c:
+me.gitai.smscodehelper.utils.TaskerPlugin -> me.gitai.smscodehelper.c.b:
     java.util.regex.Pattern VARIABLE_NAME_MATCH_PATTERN -> a
     int[] lastRandomsSeen -> b
     int randomInsertPointer -> c
     java.security.SecureRandom sr -> d
     int getPositiveNonRepeatingRandomInteger() -> a
     void <clinit>() -> <clinit>
-me.gitai.smscodehelper.utils.TaskerPlugin$Event -> me.gitai.smscodehelper.c.d:
+me.gitai.smscodehelper.utils.TaskerPlugin$Event -> me.gitai.smscodehelper.c.c:
     int addPassThroughMessageID(android.content.Intent) -> a
     android.os.Bundle retrieveOrCreatePassThroughBundle(android.content.Intent) -> b
 me.gitai.smscodehelper.widget.EditPreference -> me.gitai.smscodehelper.widget.EditPreference:
-    me.gitai.library.widget.MaterialDialog licenseDialog -> a
-    java.lang.String def_hint -> b
-    java.lang.String def_text -> c
+    me.gitai.library.widget.MaterialDialog licenseDialog -> c
+    java.lang.String def_hint -> a
+    java.lang.String def_text -> b
     android.widget.EditText editText -> d
     void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     void <init>(android.content.Context,android.util.AttributeSet) -> <init>
@@ -623,37 +757,48 @@ me.gitai.smscodehelper.widget.EditPreference$2 -> me.gitai.smscodehelper.widget.
     boolean onInflate(android.view.View) -> a
 me.gitai.smscodehelper.widget.GuessPreference -> me.gitai.smscodehelper.widget.GuessPreference:
     me.gitai.library.widget.MaterialDialog licenseDialog -> b
-    java.util.Set providers -> a
+    java.util.List providers -> a
+    android.content.Context mContext -> c
+    me.gitai.library.utils.adapter.QuickAdapter mAdapter -> d
     void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     void <init>(android.content.Context) -> <init>
     void init(android.content.Context) -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
-me.gitai.smscodehelper.widget.LicensePreference -> me.gitai.smscodehelper.widget.LicensePreference:
-    me.gitai.library.widget.MaterialDialog licenseDialog -> a
-    java.lang.String def_msg -> b
-    void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    void <init>(android.content.Context) -> <init>
-    void init(android.content.Context,android.util.AttributeSet) -> a
-    void init(android.content.Context) -> a
-    boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    void notifyDataSetChanged() -> a
+    me.gitai.library.utils.adapter.QuickAdapter access$000(me.gitai.smscodehelper.widget.GuessPreference) -> a
+    void access$100(me.gitai.smscodehelper.widget.GuessPreference) -> b
+me.gitai.smscodehelper.widget.GuessPreference$1 -> me.gitai.smscodehelper.widget.c:
+    me.gitai.smscodehelper.widget.GuessPreference this$0 -> f
+    void <init>(me.gitai.smscodehelper.widget.GuessPreference,android.content.Context,int) -> <init>
+    void convert(me.gitai.library.utils.adapter.BaseAdapterHelper,java.lang.String) -> a
+    void convert(me.gitai.library.utils.adapter.BaseAdapterHelper,java.lang.Object) -> a
+me.gitai.smscodehelper.widget.GuessPreference$2 -> me.gitai.smscodehelper.widget.d:
+    me.gitai.smscodehelper.widget.GuessPreference this$0 -> a
+    void <init>(me.gitai.smscodehelper.widget.GuessPreference) -> <init>
+    boolean onClick(android.view.View,android.view.View) -> a
+me.gitai.smscodehelper.widget.GuessPreference$3 -> me.gitai.smscodehelper.widget.e:
+    me.gitai.smscodehelper.widget.GuessPreference this$0 -> a
+    void <init>(me.gitai.smscodehelper.widget.GuessPreference) -> <init>
+    boolean onInflate(android.view.View) -> a
 me.gitai.smscodehelper.widget.TestPreference -> me.gitai.smscodehelper.widget.TestPreference:
-    me.gitai.library.widget.MaterialDialog licenseDialog -> a
-    android.content.Context ctx -> b
-    android.widget.EditText et_address -> c
-    android.widget.EditText et_body -> d
+    me.gitai.library.widget.MaterialDialog licenseDialog -> c
+    android.content.Context ctx -> d
+    android.widget.EditText et_address -> e
+    android.widget.EditText et_body -> f
     void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     void <init>(android.content.Context) -> <init>
     void init(android.content.Context) -> a
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
     void share(java.lang.String) -> a
-me.gitai.smscodehelper.widget.TestPreference$1 -> me.gitai.smscodehelper.widget.c:
+me.gitai.smscodehelper.widget.TestPreference$1 -> me.gitai.smscodehelper.widget.f:
     me.gitai.smscodehelper.widget.TestPreference this$0 -> a
     void <init>(me.gitai.smscodehelper.widget.TestPreference) -> <init>
     boolean onClick(android.view.View,android.view.View) -> a
-me.gitai.smscodehelper.widget.TestPreference$2 -> me.gitai.smscodehelper.widget.d:
+me.gitai.smscodehelper.widget.TestPreference$2 -> me.gitai.smscodehelper.widget.g:
     me.gitai.smscodehelper.widget.TestPreference this$0 -> a
     void <init>(me.gitai.smscodehelper.widget.TestPreference) -> <init>
     boolean onInflate(android.view.View) -> a
@@ -672,7 +817,7 @@ me.gitai.smscodehelper.widget.VersionPreference -> me.gitai.smscodehelper.widget
     me.gitai.library.utils.ParseAboutXml$About access$000(me.gitai.smscodehelper.widget.VersionPreference) -> a
     void access$100(me.gitai.smscodehelper.widget.VersionPreference,android.view.View,int,java.lang.String) -> a
     void access$200(me.gitai.smscodehelper.widget.VersionPreference,android.view.View,int,android.text.Spanned) -> a
-me.gitai.smscodehelper.widget.VersionPreference$1 -> me.gitai.smscodehelper.widget.e:
+me.gitai.smscodehelper.widget.VersionPreference$1 -> me.gitai.smscodehelper.widget.h:
     android.content.Context val$ctx -> a
     me.gitai.smscodehelper.widget.VersionPreference this$0 -> b
     void <init>(me.gitai.smscodehelper.widget.VersionPreference,android.content.Context) -> <init>

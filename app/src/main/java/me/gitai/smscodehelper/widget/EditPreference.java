@@ -16,8 +16,8 @@ import me.gitai.smscodehelper.R;
  */
 public class EditPreference extends Preference implements Preference.OnPreferenceClickListener {
     private MaterialDialog licenseDialog;
-    private String def_hint;
-    private String def_text;
+    protected String def_hint;
+    protected String def_text;
     private EditText editText;
 
     public EditPreference(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -42,7 +42,7 @@ public class EditPreference extends Preference implements Preference.OnPreferenc
         init(context);
     }
 
-    private void init(Context context){
+    protected void init(Context context){
         licenseDialog = new MaterialDialog(context)
                 .setTitle(getTitle())
                 .setContentView(R.layout.layout_editdialog, new MaterialDialog.OnViewInflateListener() {

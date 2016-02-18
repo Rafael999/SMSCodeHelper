@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Adapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -93,11 +94,13 @@ public class MaterialDialog {
 
     public MaterialDialog setContentView(int i,OnViewInflateListener listener) {
         View v = LayoutInflater.from(mContext).inflate(i, null);
+        return setContentView(v, listener);
+    }
 
-        //View v = ((LayoutInflater)this.mContext.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(i, null);
+    public MaterialDialog setContentView(View view,OnViewInflateListener listener) {
         if (listener!=null)
-            listener.onInflate(v);
-        return setContentView(v);
+            listener.onInflate(view);
+        return setContentView(view);
     }
 
     public MaterialDialog setContentView(View view) {
@@ -271,6 +274,7 @@ public class MaterialDialog {
     private class Builder {
         private TextView mTitleView;
         private TextView mMessageView;
+        private Adapter mAdapter;
         private Window mAlertDialogWindow;
         private LinearLayout mButtonLayout;
 
@@ -369,6 +373,7 @@ public class MaterialDialog {
         public void setMessage(CharSequence message) {
             this.mMessageView.setAutoLinkMask(Linkify.WEB_URLS);
             this.mMessageView.setText(message);
+            this.mMessageView.setVisibility(View.VISIBLE);
         }
 
         public void setPositiveButton(String text, View.OnClickListener listener) {

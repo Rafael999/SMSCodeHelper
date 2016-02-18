@@ -9,6 +9,7 @@
     <color name="secondaryPrimary">#727272</color>
     <color name="divider">#B6B6B6</color>
 
+    <color name="lite_gray">#EEE</color>
     <color name="card_background">#ffffff</color>
     <color name="card_shadow">#10000000</color>
     <color name="lite_blue">#ff359ff2</color>
